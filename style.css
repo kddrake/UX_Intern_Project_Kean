@@ -1,0 +1,55 @@
+body {
+	background: lightgray;
+}
+
+.userProfile {
+	font-family: sans-serif;
+	margin: 10px;
+	display:inline-block;
+	margin-right: auto;
+	margin-left:auto;
+}
+	
+fieldset {
+	border: 2px solid aliceblue;
+	border-radius: 20px;
+	box-shadow: 1px 1px 5px darkgray;
+	
+	background: azure;
+}
+
+.profileHead {
+	padding: .25em .5em .25em 0em;
+	margin: 0px;
+}
+
+.userId {
+	display: inline-block;
+	float:right;
+	padding: 0em 0em 0em .5em;
+}
+
+small {
+	font: 4px;
+}
+
+table {
+	display: block;
+	position: relative;
+	display: inline;
+}
+
+hr {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+}
+
+td {
+	padding: 0em .5em .5em .5em;
+	margin: 2em;
+}
+
+label {
+	font-weight: bold;
+}
