@@ -2,41 +2,65 @@ body {
 	background: lightgray;
 }
 
-.userProfile {
+.maxProfile {
 	font-family: sans-serif;
-	margin: 10px;
 	display:inline-block;
-	margin-right: auto;
-	margin-left:auto;
+	position:absolute;
+	width: 33.3%;
+	top: 12.5%;
+	left: 33.3%;
+}
+
+.minProfile {
+	font-family: sans-serif;
+	float: left;
+	display: inline;
+	position: fixed;
+	top: 0em;
+	left: 0em;
+}
+
+.maxFieldset {
+	margin: auto;
+	border: 2px solid aliceblue;
+	border-radius: 20px 20px 20px 20px;
+	box-shadow: 1px 1px 5px darkgray;
+	background: azure;
 }
 	
-fieldset {
+.minFieldset {
 	border: 2px solid aliceblue;
-	border-radius: 20px;
+	border-radius: 0px 0px 20px 20px;
 	box-shadow: 1px 1px 5px darkgray;
-	
 	background: azure;
 }
 
 .profileHead {
-	padding: .25em .5em .25em 0em;
+	width: 100%;
+	padding: 0em .25em .25em 0em;
 	margin: 0px;
+	display: inline-block;
 }
 
 .userId {
-	display: inline-block;
-	float:right;
-	padding: 0em 0em 0em .5em;
-}
-
-small {
-	font: 4px;
-}
-
-table {
-	display: block;
-	position: relative;
 	display: inline;
+	padding: 0em 0em 0em .5em;
+	position: relative;
+}
+
+button {
+	background: lightcoral;
+	padding:0em 1em .5em .5em;
+	border-radius: 0px 0px 20px 0px;
+	border-right: none;
+	border-bottom: none;
+	border-left: 2px solid aliceblue;
+	border-top: 2px solid aliceblue;
+	float:right;
+	position: relative;
+	left: 1.05em;
+	top: .9em;
+	font-weight: bold;
 }
 
 hr {

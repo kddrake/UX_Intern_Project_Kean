@@ -1,13 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<script src="script.js"></script>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<div class="userProfile">
-			<fieldset>
+		<div class="maxProfile" id="generic">
+			<fieldset id="gFieldset" class="maxFieldset">
+
 				<div class="profileHead">
-					<label>lastName, firstName</label>
+					<label>user.lastName, user.firstName</label>
 					
 					<div class="userId">
 						<small>
@@ -18,7 +20,7 @@
 					<hr>
 				</div>
 				
-				<table>
+				<table id="userData" style="display: block">
 					<tr>
 						<th>Phone:</th>
 						<th>Email:</th>
@@ -29,34 +31,9 @@
 						<td>user.email</td>
 					</tr>
 				</table>
-			</fieldset>
-		</div>
 		
-		<div class="userProfile">
-			<fieldset>
-				<div class="profileHead">
-					<label class="userData">Drake, Kean</label>
-					
-					<div class="userId">
-						<small>
-							000001
-						</small>
-					</div>
+				<button type="button" id="userButton" onclick="minimize('generic', 'gFieldset', 'userData', 'userButton')">-</button>
 
-					<hr>
-				</div>
-				
-				<table>
-					<tr>
-						<th>Phone:</th>
-						<th>Email:</th>
-					</tr>
-					
-					<tr>
-						<td>(555) 555-0123</td>
-						<td>kean.drake@banno.com</td>
-					</tr>
-				</table>
 			</fieldset>
 		</div>
 	</body>
