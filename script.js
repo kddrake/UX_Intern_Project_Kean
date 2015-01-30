@@ -1,5 +1,5 @@
 (function (){
-	var app = angular.module('uxiApp', [])
+	var app = angular.module('uxiApp', ['ngResource','ui.router'])
 		app.controller('profileViewController', function($scope){
 			$scope.sizeButton = '-'
 
