@@ -1,40 +1,14 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="uxiApp">
 	<head>
+		<script src="node_modules/angular/angular.js"></script>
+		<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="node_modules/angular-resource/angular-resource.js"></script>
+		<script type='text/ng-template' id="temps/userProfile.html"></script>
 		<script src="script.js"></script>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<div class="maxProfile" id="generic">
-			<fieldset id="gFieldset" class="maxFieldset">
-
-				<div class="profileHead">
-					<label>user.lastName, user.firstName</label>
-					
-					<div class="userId">
-						<small>
-							user.id
-						</small>
-					</div>
-
-					<hr>
-				</div>
-				
-				<table id="userData" style="display: block">
-					<tr>
-						<th>Phone:</th>
-						<th>Email:</th>
-					</tr>
-					
-					<tr>
-						<td>user.phone</td>
-						<td>user.email</td>
-					</tr>
-				</table>
-		
-				<button type="button" id="userButton" onclick="minimize('generic', 'gFieldset', 'userData', 'userButton')">-</button>
-
-			</fieldset>
-		</div>
+		<user-profile></user-profile>
 	</body>
 </html>
