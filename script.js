@@ -9,11 +9,16 @@
 				})
 				.state('home.users', {
 					url:"users",
-					templateUrl:"partials/users.html"
+					templateUrl:"partials/users.html",
+					controller: "userController"
 				})
 				.state('home.users.profile', {
-					url:"/:_id",
+					url:"/:id",
 					templateUrl:"partials/userProfile.html"
+				})
+				.state('home.users.edit', {
+					url:"/edit/:id",
+					templateUrl:"partials/editUserProfile.html"
 				});
 		});
 })();

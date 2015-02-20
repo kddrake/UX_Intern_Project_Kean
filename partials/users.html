@@ -1,1 +1,11 @@
+<fieldset id="usersList">
+	<div class="header">Users</div>
+	<hr>
+	<div ng-repeat="user in users"
+		 class="users">
+		<a ui-sref="home.users.profile"
+		   class="usersLinks">{{user.name}}</a>
+	</div>
+</fieldset>
+
 <div ui-view></div>

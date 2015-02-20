@@ -1,7 +1,7 @@
 #homeNav {
 	margin: 0em 0em 1em 0em;
-	border: .125em solid darkgray;
-		border-radius: 0em 0em .5em .5em;
+	border: .0625em solid lightgray;
+		border-radius: 0em 0em 1em 1em;
 	padding: 0em;
 
 	height: 2.5%;
@@ -10,14 +10,16 @@
 	position: absolute;
 	top: -.125em;
 
-	background: lightcoral;
+	box-shadow: 0em 0em .125em darkgray;
+
+	background: aliceblue;
 }
 .uiButton {
 	margin:.5em .5em;
+	padding: .125em;
 	
 	position: relative;
-	top: .25em;
-	color: white;
-
-	text-decoration: none;
+	top: .125em;
+	
+	color: black;
 }

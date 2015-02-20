@@ -1,17 +1,14 @@
-<div ng-model="userProfileView" 
-	 ng-controller="profileViewController" 
-	 ng-class="{maxProfile: !hideUserData, minProfile: hideUserData}">
+<div ng-model="profileContainer" 
+	 class="profileContainer">
 
-	<fieldset id="profileFieldset" 
-			  ng-class="{maxFieldset: !hideUserData, minFieldset: hideUserData}">
-		
-		<div class="profileHead">
-			<label>user.lastName, user.firstName</label>
-			<hr>
-		</div>
-		
-		<table ng-show="!hideUserData" 
-			   id="userData">
+	<fieldset class="profile">
+		<a ui-sref="home.users" 
+		   class="xButton">X</a>
+				
+		<div class="header">lastName, firstName</div>
+		<hr>
+
+		<table class="userData">
 			<tr>
 				<th>Phone:</th>
 				<th>Email:</th>
@@ -21,9 +18,7 @@
 				<td>user.email</td>
 			</tr>
 		</table>
-		
-		<button type="button" 
-			    id="userButton" 
-			    ng-click="hideUserData = !hideUserData; changeButton()">{{sizeButton}}</button>
+		<a ui-sref="home.users.edit"
+		   id="editButton">Edit</a>
 	</fieldset>
 </div>
