@@ -6,13 +6,15 @@
 				.state('home', {
 					url: "/",
 					templateUrl:"partials/home.html"
+				})
+				.state('home.users', {
+					url:"users",
+					templateUrl:"partials/users.html"
+				})
+				.state('home.users.profile', {
+					url:"/:_id",
+					templateUrl:"partials/userProfile.html"
 				});
 		});
-		app.directive('userProfile', function(){
-			return {
-				restrict: 'E',
-				templateUrl: 'partials/userProfile.html'
-			}
-		})
 })();
 

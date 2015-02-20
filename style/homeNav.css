@@ -8,7 +8,7 @@
 	width: 99%;
 
 	position: absolute;
-	top: 0em;
+	top: -.125em;
 
 	background: lightcoral;
 }
@@ -16,7 +16,7 @@
 	margin:.5em .5em;
 	
 	position: relative;
-	top: .125em;
+	top: .25em;
 	color: white;
 
 	text-decoration: none;
