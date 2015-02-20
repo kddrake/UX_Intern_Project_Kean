@@ -1,0 +1,23 @@
+#homeNav {
+	margin: 0em 0em 1em 0em;
+	border: .125em solid darkgray;
+		border-radius: 0em 0em .5em .5em;
+	padding: 0em;
+
+	height: 2.5%;
+	width: 99%;
+
+	position: absolute;
+	top: 0em;
+
+	background: lightcoral;
+}
+.uiButton {
+	margin:.5em .5em;
+	
+	position: relative;
+	top: .125em;
+	color: white;
+
+	text-decoration: none;
+}
