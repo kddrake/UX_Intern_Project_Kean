@@ -1,0 +1,32 @@
+#usersList {
+	margin: 0em 0em 1em 0em;
+	border: .0625em solid lightgray;
+		border-radius: 1em 1em 0em 0em;
+	padding: 0em;
+
+	position: absolute;
+	top: 5%;
+
+	height: 95%;
+	width: 20%;
+
+	box-shadow: 0em 0em .5em darkgray;
+
+	background: aliceblue;
+	text-align: center;
+}
+
+.users{
+	margin: .25em .5em;
+	border: .0625em solid lightgray;
+		border-radius: .25em;
+	padding: .25em;
+
+	background: azure;
+
+	text-align: center;
+}
+
+.usersLinks {
+	color: black;
+}
