@@ -1,0 +1,33 @@
+<div ng-model="profileContainer" 
+	 class="profileContainer">
+
+	<fieldset class="profile">
+		<a ui-sref="home.users" 
+		   class="xButton">X</a>
+		
+		<div class="header">New User</div>
+		<hr>
+
+		<form name="newUser" ng-submit="save(newUser)">
+			<table class="userData">
+				<tr>
+					<th>First Name:</th>
+					<th>Last Name:</th>
+				</tr>
+					<td><input type="text" ng-model="newUser.first" placeholder="First name"></td>
+					<td><input type="text" ng-model="newUser.last" placeholder="Last name"></td>
+				<tr>
+				</tr>
+				<tr>
+					<th>Phone:</th>
+					<th>Email:</th>
+				</tr>
+				<tr>
+					<td><input type="tel" ng-model="newUser.phone" placeholder="(xxx)xxx-xxxx"></td>
+					<td><input type="email" ng-model="newUser.email" placeholder="name@domain.com"></td>
+				</tr>
+			</table>
+			<button type="submit" ng-click="addUser(newUser)">Submit</button>
+		</form>
+	</fieldset>
+</div>

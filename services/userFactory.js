@@ -3,7 +3,7 @@
 		app.factory('userFactory', function($resource) {
 			return $resource('http://localhost:24149/users/:id',
 							{id: "@_id"},
-							{update: {method: 'POST'},
+							{update: {method: 'PUT'},
 							 remove: {method: 'DELETE'}});
 		});
 })();

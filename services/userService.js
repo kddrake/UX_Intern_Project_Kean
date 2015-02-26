@@ -2,7 +2,7 @@
 	var app = angular.module('uxiApp');
 		app.service('userService', function(userFactory) {
 			function create(user) {
-				return userFactory.save(user).$promise
+				return userFactory.save(user).$promise;
 			}
 
 			function get(id) {
