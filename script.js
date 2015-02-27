@@ -15,17 +15,17 @@
 				.state('home.users.new', {
 					url:"/new",
 					templateUrl:"partials/newUserProfile.html",
-					controller: "userController"
+					controller:"profileController.new"
 				})
 				.state('home.users.profile', {
 					url:"/:id",
 					templateUrl:"partials/userProfile.html",
-					controller: "userController"
+					controller: "profileController"
 				})
 				.state('home.users.edit', {
 					url:"/edit/:id",
 					templateUrl:"partials/editUserProfile.html",
-					controller: "userController"
+					controller: "profileController.edit"
 				});
 		});
 })();
