@@ -8,7 +8,7 @@
 		<div class="header">New User</div>
 		<hr>
 
-		<form name="newUser" ng-submit="save(newUser)">
+		<form name="newUser" ng-submit="addUser(newUser)">
 			<table class="userData">
 				<tr>
 					<th>First Name:</th>
@@ -27,7 +27,7 @@
 					<td><input type="email" ng-model="newUser.email" placeholder="name@domain.com"></td>
 				</tr>
 			</table>
-			<button type="submit" ng-click="addUser(newUser)">Submit</button>
+			<input type="submit" value="Add User"/>
 		</form>
 	</fieldset>
 </div>
