@@ -5,7 +5,7 @@
 		<a ui-sref="home.users" 
 		   class="xButton">X</a>
 				
-		<div class="header">{{currentUser.lastName+ ", " + currentUser.firstName}}</div>
+		<div class="header">{{user.lastName+ ", " + user.firstName}}</div>
 		<hr>
 
 		<table class="userData">
@@ -14,8 +14,8 @@
 				<th>Email:</th>
 			</tr>
 			<tr>
-				<td>{{currentUser.phone}}</td>
-				<td>{{currentUser.email}}</td>
+				<td>{{user.phone}}</td>
+				<td>{{user.email}}</td>
 			</tr>
 		</table>
 		<a ui-sref="home.users.edit"

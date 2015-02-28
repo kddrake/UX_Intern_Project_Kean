@@ -5,25 +5,26 @@
 		<a ui-sref="home.users" 
 		   class="xButton">X</a>
 		
-		<div class="header">Edit</div>
+		<div class="header">{{"Edit: " + user.lastName + ", " + user.firstName}}</div>
 		<hr>
+
+		<small>*Email field cannot be modified</small>
+		<br>
 
 		<table class="userData">
 			<tr>
 				<th>First Name:</th>
 				<th>Last Name:</th>
 			</tr>
-				<td><input type="text" placeholder="First name"></td>
-				<td><input type="text" placeholder="Last name"></td>
+				<td><input type="text" placeholder="{{user.firstName}}"></td>
+				<td><input type="text" placeholder="{{user.lastName}}"></td>
 			<tr>
 			</tr>
 			<tr>
 				<th>Phone:</th>
-				<th>Email:</th>
 			</tr>
 			<tr>
-				<td><input type="tel" placeholder="(xxx)xxx-xxxx"></td>
-				<td><input type="email" placeholder="name@domain.com"></td>
+				<td><input type="tel" placeholder="{{user.phone}}"></td>
 			</tr>
 		</table>
 

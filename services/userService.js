@@ -1,19 +1,20 @@
-app.service('userService', function(promiseService) {
-	var users = [];
-	var currentUser = {}; 
+app.service('userService', function(promiseFactory) {
+	var users = []; 
+	var user = {};
 
 	function getUser(id) {
-		promiseService.get(id)
+		promiseFactory.promises.get(id)
 			.then(function(response) {
-				currentUser = response;
-				console.log("getUser: successful");
+				current = response;
+				return this.current;
 			}, function(error) {
 				console.log(error);
 			});
 	};
 
+	//FUNCTIONAL
 	function addUser(user) {
-		promiseService.create(user)
+		promiseFactory.create(user)
 			.then(function (){
 				console.log("addUser: successful")
 			}, function(error) {
@@ -21,18 +22,18 @@ app.service('userService', function(promiseService) {
 			}); 
 	};
 
+	//NON-FUNCTIONAL
 	function getUsers() {
-		promiseService.list()
-			.then(function(response) {
-				users = response;
-				console.log("getUsers: successful");
+		promiseFactory.list()
+			.then(function(users) {
+				return users;
 			}, function(error) {
 				console.log(error);
 			});
 	};
 
 	function removeUser(id) {
-		promiseService.remove(id)
+		promiseFactory.remove(id)
 			.then(function() {
 				console.log("removeUser: successful");
 			}, function(error) {
@@ -41,7 +42,7 @@ app.service('userService', function(promiseService) {
 	};
 
 	function updateUser(id) {
-		promiseService.update(id)
+		promiseFactory.update(id)
 			.then(function() {
 				console.log("updateUser: successful");
 			}, function(error) {
@@ -50,12 +51,12 @@ app.service('userService', function(promiseService) {
 	};	
 
 	return {
-		users: users,
-		currentUser: currentUser,
+		users: this.users,
+		user: this.user,
 		
 		getUser: getUser,
 		addUser: addUser,
-		getUsers: getUsers,
+		//getUsers: getUsers,
 		removeUser: removeUser,
 		updateUser: updateUser
 	}
