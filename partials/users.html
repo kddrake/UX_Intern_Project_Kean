@@ -3,10 +3,10 @@
 	<hr>
 	<input type="search" ng-model="search" placeholder="Search users">
 	
-	<div ng-repeat="user in users | filter: search"
+	<div ng-repeat="user in users | filter: search | orderBy: 'lastName'"
 		 class="users">
 		<a ui-sref="home.users.profile({id: user._id})"
-		   class="usersLinks">{{user.lastName + ", " + user.firstName}}</a>
+		   class="usersLinks">{{user.firstName + " " + user.lastName}}</a>
 	</div>
 </fieldset>
 

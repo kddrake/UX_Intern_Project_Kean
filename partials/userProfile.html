@@ -2,8 +2,8 @@
 	 class="profileContainer">
 
 	<fieldset class="profile">
-		<a ui-sref="home.users" 
-		   class="xButton">X</a>
+		<button ng-click="exit()" 
+		   		class="xButton">X</button>
 				
 		<div class="header">{{user.lastName+ ", " + user.firstName}}</div>
 		<hr>
@@ -18,7 +18,10 @@
 				<td>{{user.email}}</td>
 			</tr>
 		</table>
-		<a ui-sref="home.users.edit"
-		   id="editButton">Edit</a>
+		<button ng-click="deleteUser(user)"
+		   		class="editButton">Delete</button>
+		<button ng-click="editUser()"
+		   		class="editButton">Edit</button>
+
 	</fieldset>
 </div>

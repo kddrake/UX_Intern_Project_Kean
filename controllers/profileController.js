@@ -1,6 +1,10 @@
-app.controller('profileController', function($scope, $stateParams, promiseFactory, userService) {		
+app.controller('profileController', function($scope, $state, $stateParams, promiseFactory, userService) {		
 	$scope.users = userService.users;
 	
+	$scope.exit = function() {
+		$state.go('home.users');
+	}
+
 	$scope.setUser = function() {
 		for (var user in $scope.users) {
 			if ($scope.users[user]._id === $stateParams.id) {
@@ -9,6 +13,18 @@ app.controller('profileController', function($scope, $stateParams, promiseFactor
 			};
 		};
 	};
+
+	$scope.deleteUser = function(user) {
+		promiseFactory.remove({id: user._id})
+			.then(function() {
+				console.log("deleteUser: " + user.firstName + " " + user.lastName);
+				$state.go('home');
+			})
+		};
+
+	$scope.editUser = function() {
+		$state.go('home.users.edit');
+	}
 
 	$scope.setUser();
 });

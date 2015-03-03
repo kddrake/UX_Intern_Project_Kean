@@ -16,7 +16,7 @@
 	margin: auto;
 }
 
-#editButton {
+.editButton {
 	display: inline;
 	position: relative;
 
@@ -25,6 +25,7 @@
 	top: .5em;
 	left: .25em;
 
+	margin: 0em .125em;
 	border: none;
 		border-radius:.25em;
 	padding: .125em .5em .125em .5em;

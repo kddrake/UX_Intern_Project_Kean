@@ -17,8 +17,8 @@ app.factory('promiseFactory', function(resourceFactory) {
 		return resourceFactory.remove(id).$promise;
 	};
 
-	promises.update = function(id) {
-		return resourceFactory.update(id).$promise;
+	promises.update = function(user) {
+		return resourceFactory.update(user).$promise;
 	};
 
 	return promises;
