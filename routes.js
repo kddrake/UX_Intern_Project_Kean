@@ -18,11 +18,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			.state('home.users.profile', {
 				url:"/:id",
 				templateUrl:"partials/userProfile.html",
-				controller: "profileController"
+				controller: "users.profileController"
 			})
 			.state('home.users.edit', {
 				url:"/edit/:id",
 				templateUrl:"partials/userProfile.edit.html",
-				controller: "profileController.edit"
+				controller: "users.editController"
 			});
 	});

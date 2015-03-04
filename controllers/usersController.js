@@ -1,4 +1,6 @@
 app.controller('usersController', function($scope, promiseFactory, userService) {
+	$scope.user = userService.user;
+
 	promiseFactory.list()
 		.then(function(users) {
 			$scope.users = users;

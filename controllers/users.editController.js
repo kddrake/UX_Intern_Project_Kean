@@ -1,10 +1,6 @@
-app.controller('profileController.edit', function($scope, $state, userService, promiseFactory) {		
+app.controller('users.editController', function($scope, $state, userService, promiseFactory) {		
 	$scope.users = userService.users;
 	$scope.user = userService.user;
-
-	$scope.clearForm = function() {
-	
-	};
 
 	$scope.editUser = function(user) {
 		promiseFactory.update(user)
@@ -13,7 +9,7 @@ app.controller('profileController.edit', function($scope, $state, userService, p
 				userService.user = $scope.user;
 				console.log("editUser: " + user.firstName + " " + user.lastName);
 				$scope.user= {};
-				$state.go('home');
+				$state.go('home.users');
 			});
 	};
 });

@@ -1,6 +1,7 @@
-app.controller('profileController', function($scope, $state, $stateParams, promiseFactory, userService) {		
+app.controller('users.profileController', function($scope, $state, $stateParams, promiseFactory, userService) {		
 	$scope.users = userService.users;
-	
+	$scope.user = userService.user;
+
 	$scope.exit = function() {
 		$state.go('home.users');
 	}
@@ -18,7 +19,9 @@ app.controller('profileController', function($scope, $state, $stateParams, promi
 		promiseFactory.remove({id: user._id})
 			.then(function() {
 				console.log("deleteUser: " + user.firstName + " " + user.lastName);
-				$state.go('home');
+				userService.getUsers();
+				$scope.users = userService.users;
+				$state.go('home.users');
 			})
 		};
 
