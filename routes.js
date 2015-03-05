@@ -3,7 +3,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('home', {
 				url: "/",
-				templateUrl:"partials/home.html"
+				templateUrl:"partials/home.html",
+				controller: "homeController"
 			})
 			.state('home.users', {
 				url:"users",
@@ -17,12 +18,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			})
 			.state('home.users.profile', {
 				url:"/:id",
-				templateUrl:"partials/userProfile.html",
+				templateUrl:"partials/users.profile.html",
 				controller: "users.profileController"
 			})
 			.state('home.users.edit', {
 				url:"/edit/:id",
-				templateUrl:"partials/userProfile.edit.html",
+				templateUrl:"partials/users.edit.html",
 				controller: "users.editController"
 			});
 	});

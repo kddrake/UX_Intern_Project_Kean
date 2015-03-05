@@ -1,33 +1,27 @@
-app.controller('users.profileController', function($scope, $state, $stateParams, promiseFactory, userService) {		
+app.controller('users.profileController', function($scope, $state, $stateParams, $timeout, userService) {		
 	$scope.users = userService.users;
 	$scope.user = userService.user;
 
-	$scope.exit = function() {
+	$scope.exitButton = function() {
 		$state.go('home.users');
 	}
 
+	$scope.editButton = function() {
+		$state.go('home.users.edit');
+	};
+
 	$scope.setUser = function() {
-		for (var user in $scope.users) {
-			if ($scope.users[user]._id === $stateParams.id) {
-				$scope.user = $scope.users[user];
-				userService.user = $scope.user;
-			};
-		};
+		userService.setUser();
+		$scope.user = userService.user;
+		console.log("From controller:\n" +
+					"  $scope.user: " + $scope.user +
+					"\n  userService.user: " + userService.user);
 	};
 
 	$scope.deleteUser = function(user) {
-		promiseFactory.remove({id: user._id})
-			.then(function() {
-				console.log("deleteUser: " + user.firstName + " " + user.lastName);
-				userService.getUsers();
-				$scope.users = userService.users;
-				$state.go('home.users');
-			})
-		};
-
-	$scope.editUser = function() {
-		$state.go('home.users.edit');
-	}
+		userService.deleteUser(user);
+		$state.go('home');
+	};
 
 	$scope.setUser();
 });

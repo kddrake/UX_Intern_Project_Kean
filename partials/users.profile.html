@@ -2,7 +2,7 @@
 	 class="profileContainer">
 
 	<fieldset class="profile">
-		<button ng-click="exit()" 
+		<button ng-click="exitButton()" 
 		   		class="xButton">X</button>
 				
 		<div class="header">{{user.lastName+ ", " + user.firstName}}</div>
@@ -20,7 +20,7 @@
 		</table>
 		<button ng-click="deleteUser(user)"
 		   		class="editButton">Delete</button>
-		<button ng-click="editUser()"
+		<button ng-click="editButton()"
 		   		class="editButton">Edit</button>
 
 	</fieldset>
