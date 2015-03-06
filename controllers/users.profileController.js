@@ -22,7 +22,7 @@ app.controller('users.profileController', function($scope, $state, $stateParams,
 
 	$scope.deleteUser = function(user) {
 		userService.deleteUser(user);
-		$state.go('home');
+		$state.go('home.users');
 	};
 
 	// $scope.setUser();

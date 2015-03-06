@@ -51,6 +51,7 @@ app.service('userService', function($rootScope, $stateParams, promiseFactory) {
 	function deleteUser(user) {
 		promiseFactory.remove({id: user._id})
 			.then(function() {
+				populateUsersList();
 				console.log("User deleted: " + user.firstName + " " + user.lastName);
 			}, function(error) {
 				console.log(error);

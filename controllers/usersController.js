@@ -1,5 +1,5 @@
 app.controller('usersController', function($scope, promiseFactory, userService) {
-	$scope.user = userService.user;
+	$scope.user = angular.copy(userService.user);
 
 	promiseFactory.list()
 		.then(function(users) {
@@ -11,7 +11,7 @@ app.controller('usersController', function($scope, promiseFactory, userService) 
 
 	$scope.$on('UPDATE_USERS', function(event, newUsersList){
 		console.log("users: ", newUsersList)
-		$scope.users = newUsersList;
+		$scope.users = angular.copy(newUsersList);
 	})
 
 });
