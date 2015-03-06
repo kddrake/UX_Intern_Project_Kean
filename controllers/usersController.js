@@ -9,4 +9,9 @@ app.controller('usersController', function($scope, promiseFactory, userService) 
 		console.log(error);
 	});
 
+	$scope.$on('UPDATE_USERS', function(event, newUsersList){
+		console.log("users: ", newUsersList)
+		$scope.users = newUsersList;
+	})
+
 });

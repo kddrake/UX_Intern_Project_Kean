@@ -1,9 +1,10 @@
-app.controller('users.editController', function($scope, $state, userService, promiseFactory) {		
-	$scope.users = userService.users;
-	$scope.user = userService.user;
+app.controller('users.editController', function($scope, $state, userService, promiseFactory) {
+	$scope.user = userService.setUser();
+	console.log("user: ", $scope.user);
 
 	$scope.editUser = function(user) {
 		userService.editUser(user);
-		$state.go('^.profile');
+		userService.getUsers();
+		$state.go('^.profile',{id: $scope.user._id});
 	};
 });

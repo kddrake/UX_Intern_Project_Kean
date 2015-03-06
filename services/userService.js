@@ -1,6 +1,25 @@
-app.service('userService', function($stateParams, promiseFactory) {
-	var users = []; 
+app.service('userService', function($rootScope, $stateParams, promiseFactory) {
+	var users = [];
 	var user = {};
+	var findUser = function(){
+		var currentUser = {};
+		angular.forEach(this.users, function(usr){
+			if ($stateParams.id == usr._id){
+				currentUser = usr;
+			}
+		})
+		return currentUser;
+	}
+	var populateUsersList = function(){
+		promiseFactory.list()
+			.then(function(users) {
+				this.users = users;
+				$rootScope.$broadcast('UPDATE_USERS', users);
+				console.log("Users retrieved from server");
+			}, function(error) {
+				console.log(error);
+			});
+	}
 
 	//fucntional
 	function addUser(user) {
@@ -16,6 +35,7 @@ app.service('userService', function($stateParams, promiseFactory) {
 		promiseFactory.update(user)
 			.then(function(updatedUser) {
 				this.user = updatedUser;
+				populateUsersList();
 				console.log("User edited: " + user.firstName + " " + user.lastName);
 			}, function(error) {
 				console.log(error);
@@ -23,12 +43,7 @@ app.service('userService', function($stateParams, promiseFactory) {
 	}
 
 	function setUser() {
-		angular.forEach(this.users, function(usr) {
-			if (usr._id == $stateParams.id) {
-				this.user = usr;
-				console.log("userService current user: " + this.user.firstName + " " + this.user.lastName);
-			};
-		});
+		return findUser();
 	};
 
 	//functional
@@ -44,15 +59,9 @@ app.service('userService', function($stateParams, promiseFactory) {
 	//functional
 	//$scope.users doesn't update
 	function getUsers() {
-		promiseFactory.list()
-			.then(function(users) {
-				this.users = users;
-				console.log("Users retrieved from server");
-			}, function(error) {
-				console.log(error);
-			});
+		populateUsersList();
 	};
-	
+
 	return {
 		users: this.users,
 		user: this.user,
