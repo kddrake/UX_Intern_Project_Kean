@@ -1,7 +1,0 @@
-.newUserForm.input.ng-valid {
-	background-color: green;
-}
-
-.newUserForm.input.ng-invalid {
-	background-color: lightcoral;
-}
