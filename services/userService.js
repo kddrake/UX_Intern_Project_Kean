@@ -26,6 +26,7 @@ app.service('userService', function($rootScope, $stateParams, promiseFactory) {
 		promiseFactory.create(user)
 			.then(function() {
 				this.user = user;
+				populateUsersList();
 				console.log("User added: " + user.firstName + " " + user.lastName);
 			});
 	};
