@@ -1,0 +1,27 @@
+<div ng-model="profileContainer" 
+	 class="profileContainer">
+
+	<fieldset class="profile">
+		<button ng-click="exitButton()" 
+		   		class="xButton">X</button>
+				
+		<div class="header">{{user.lastName+ ", " + user.firstName}}</div>
+		<hr>
+
+		<table class="userData">
+			<tr>
+				<th>Phone:</th>
+				<th>Email:</th>
+			</tr>
+			<tr>
+				<td>{{user.phone}}</td>
+				<td>{{user.email}}</td>
+			</tr>
+		</table>
+		<button ng-click="deleteUser(user)"
+		   		class="editButton">Delete</button>
+		<button ng-click="editButton()"
+		   		class="editButton">Edit</button>
+
+	</fieldset>
+</div>

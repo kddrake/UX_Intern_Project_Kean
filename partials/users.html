@@ -1,11 +1,15 @@
 <fieldset id="usersList">
 	<div class="header">Users</div>
 	<hr>
-	<div ng-repeat="user in users"
+	<input type="search" ng-model="search" placeholder="Search users">
+	
+	<div ng-repeat="user in users | filter: search | orderBy: 'lastName'"
 		 class="users">
-		<a ui-sref="home.users.profile"
-		   class="usersLinks">{{user.name}}</a>
+		<a ui-sref="home.users.profile({id: user._id})"
+		   class="usersLinks">{{user.firstName + " " + user.lastName}}</a>
 	</div>
 </fieldset>
 
-<div ui-view></div>
+<div class="content">
+	<div ui-view></div>
+</div>
