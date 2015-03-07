@@ -1,0 +1,8 @@
+<accordion close-others="true">
+	<accordion-group heading="{{user.firstName + ' ' + user.lastName}}"
+					 ng-repeat="user in users | filter: search | orderBy: 'lastName'">
+		<user-button-bar></user-button-bar>
+		<user-info-panel></user-info-panel>
+		
+	</accordion-group>
+</accordion>

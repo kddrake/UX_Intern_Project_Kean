@@ -9,9 +9,11 @@ app.controller('usersController', function($scope, promiseFactory, userService) 
 		console.log(error);
 	});
 
+	$scope.deleteUser = function(user) {
+		userService.deleteUser(user);
+	};
+
 	$scope.$on('UPDATE_USERS', function(event, newUsersList){
-		console.log("users: ", newUsersList)
 		$scope.users = angular.copy(newUsersList);
 	})
-
 });

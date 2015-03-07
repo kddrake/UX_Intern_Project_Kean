@@ -1,5 +1,5 @@
 #usersList {
-	margin: 0em 0em 1em 0em;
+	margin: .5em;
 	border: .0625em solid lightgray;
 		border-radius: 1em 1em 0em 0em;
 	padding: 0em;
@@ -16,17 +16,7 @@
 	text-align: center;
 }
 
-.users{
-	margin: .25em .5em;
-	border: .0625em solid lightgray;
-		border-radius: .25em;
-	padding: .25em;
-
-	background: azure;
-
-	text-align: center;
-}
-
-.usersLinks {
-	color: black;
+.userButtonBar {
+	display: inline-block;
+	margin: 0 auto;
 }

@@ -1,0 +1,37 @@
+<form>
+	<div class="form-group">
+		<label for="firstName">First Name:</label>
+		<input type="text" 
+			   class="form-control"
+			   id="firstName"
+			   ng-model="newUser.firstName" 
+			   placeholder="First name">
+	</div>
+	<div class="form-group">	
+		<label for="lastName">Last Name:</label>
+		<input type="text" 
+			   class="form-control"
+			   id="lastName"
+			   ng-model="newUser.lastName" 
+			   placeholder="Last name">
+	</div>
+	<div class="form-group">	
+		<label for="phone">Phone Number:</label>
+		<input type="tel" 
+			   class="form-control"
+			   id="phone"
+			   ng-model="newUser.phone" 
+			   placeholder="xxx-xxx-xxxx">
+	</div>
+	<div class="form-group">	
+		<label for="email">Email Address:</label>
+		<input type="email" 
+			   class="form-control"
+			   id="email"
+			   ng-model="newUser.email" 
+			   placeholder="user@domain.com">
+	</div>
+	<button type="submit" 
+			class="btn btn-default btn-success pull-right"
+			ng-click="addUser(newUser)">Add User</button>
+</form>

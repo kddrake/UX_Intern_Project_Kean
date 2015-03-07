@@ -1,15 +1,23 @@
-<fieldset id="usersList">
-	<div class="header">Users</div>
-	<hr>
-	<input type="search" ng-model="search" placeholder="Search users">
-	
-	<div ng-repeat="user in users | filter: search | orderBy: 'lastName'"
-		 class="users">
-		<a ui-sref="home.users.profile({id: user._id})"
-		   class="usersLinks">{{user.firstName + " " + user.lastName}}</a>
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Users
+					<a ui-sref="home.users.new"
+				   class="btn btn-success btn-xs pull-right">
+				   		<span class="glyphicon glyphicon-plus"></span>
+					</a>
+				</h3>
+			</div>
+			<div class="panel-body panel-info">
+				<filters-panel></filters-panel>
+				<user-accordion></user-accordion>
+			</div>
+		</div>
 	</div>
-</fieldset>
 
-<div class="content">
-	<div ui-view></div>
+	<div class="col-md-9">
+		<div ui-view></div>
+	</div>
 </div>

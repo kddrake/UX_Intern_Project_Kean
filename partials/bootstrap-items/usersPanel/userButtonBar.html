@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-12">	
+		<div class="btn-toolbar" role="toolbar">
+			
+			<div class="btn-group btn-group-sm" role="group">
+				<button type="button" class="btn btn-info"
+					    ng-click="phone = !phone">
+					<span class="glyphicon glyphicon-phone"></span>
+				</button>
+
+				<button type="button" class="btn btn-info"
+						ng-click="email = !email">
+					<span class="glyphicon glyphicon-envelope"></span>
+				</button>
+			</div>
+
+			<div class="btn-group btn-group-sm" role="group">
+				<a ui-sref="home.users.edit({id: user._id})" class="btn btn-warning">
+					<span class="glyphicon glyphicon-pencil"></span>
+				</a>
+
+				<button type="button" class="btn btn-danger" ng-click="deleteUser(user)">
+					<span class="glyphicon glyphicon-trash"></span>
+				</button>
+			</div>
+
+			<div class="btn-group btn-group-sm" role="group">
+				<a ui-sref="home.users.profile({id: user._id})" class="btn btn-info btn-sm">
+					<span class="glyphicon glyphicon-eye-open"></span>
+				</a>
+			</div>
+
+		</div>
+	</div>
+</div>
