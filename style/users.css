@@ -20,3 +20,18 @@
 	display: inline-block;
 	margin: 0 auto;
 }
+
+.fixed-panel {
+	min-height: 55em;
+	max-height: 55em;
+	overflow-y: auto;
+}
+
+.search-bars {
+	margin: 1em;
+}
+
+.input-group-addon {
+	min-width: 3em;
+	max-width: 3em;
+}

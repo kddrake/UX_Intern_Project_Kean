@@ -24,3 +24,7 @@
 	
 	color: black;
 }
+
+.objectOverflow {
+	overflow: auto;
+}
