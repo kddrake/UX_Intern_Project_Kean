@@ -1,8 +1,9 @@
 app.controller('usersController', function($scope, promiseFactory, userService) {
 	userService.getUsers();
 	$scope.user = angular.copy(userService.user);
-	$scope.filterBy = {all: false, 
-					   firstName: false, 
+	$scope.userInfo = {phone: false,
+					   email: false};
+	$scope.filterBy = {firstName: false, 
 					   lastName: false, 
 					   phone: false, 
 					   email: false};

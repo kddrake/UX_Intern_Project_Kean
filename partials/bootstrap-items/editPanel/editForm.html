@@ -1,32 +1,8 @@
-<form>
-	<div class="form-group">
-		<label for="firstName">First Name:</label>
-		<input type="text" 
-			   class="form-control input-sm"
-			   id="firstName"
-			   ng-model="user.firstName" 
-			   placeholder="{{user.firstName}}">
-	</div>
-	<div class="form-group">	
-		<label for="lastName">Last Name:</label>
-		<input type="text" 
-			   class="form-control input-sm"
-			   id="lastName"
-			   ng-model="user.lastName" 
-			   placeholder="{{user.lastName}}">
-	</div>
-	<div class="form-group">	
-		<label for="phone">Phone Number:</label>
-		<input type="tel" 
-			   class="form-control input-sm"
-			   id="phone"
-			   ng-model="user.phone" 
-			   placeholder="{{user.phone}}">
-	</div>
-	<div class="form-group">	
-		<label for="email">Email Address:</label>
-		<p class="form-control-static">{{user.email}}</p>
-	</div>
+<form name="editForm" class="form-horizontal">
+	<edit-first-name-input></edit-first-name-input>
+	<edit-last-name-input></edit-last-name-input>
+	<edit-phone-input></edit-phone-input>
+	<edit-email-input></edit-email-input>
 	<button type="submit" 
 			class="btn btn-default btn-warning pull-right"
 			ng-click="editUser(user)">Apply Changes</button>

@@ -4,15 +4,19 @@
 			<div class="btn-toolbar" role="toolbar">
 				
 				<div class="btn-group btn-group-sm" role="group">
-					<button type="button" class="btn btn-info"
-						    ng-click="phone = !phone">
+					<label class="btn btn-info"
+						   ng-model="userInfo.phone"
+						   ng-click="phone = !phone"
+						   btn-checkbox>
 						<span class="glyphicon glyphicon-phone"></span>
-					</button>
+					</label>
 
-					<button type="button" class="btn btn-info"
-							ng-click="email = !email">
+					<label class="btn btn-info"
+						   ng-model="userInfo.email"
+						   ng-click="email = !email"
+						   btn-checkbox>
 						<span class="glyphicon glyphicon-envelope"></span>
-					</button>
+					</label>
 				</div>
 
 				<div class="btn-group btn-group-sm" role="group">

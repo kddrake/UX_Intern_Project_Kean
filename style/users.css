@@ -18,7 +18,8 @@
 
 .userButtonBar {
 	display: inline-block;
-	margin: 0 auto;
+	margin: 0em auto;
+	padding: 0em;
 }
 
 .fixed-panel {
@@ -31,7 +32,16 @@
 	margin: 1em;
 }
 
-.input-group-addon {
+.user-search-addon {
 	min-width: 3em;
 	max-width: 3em;
+}
+
+.user-panel-header {
+	padding: .125em .25em;
+}
+
+.user-panel-body {
+	padding: .125em 0em;
+	text-align: center;
 }
