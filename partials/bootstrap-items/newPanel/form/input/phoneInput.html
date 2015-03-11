@@ -1,0 +1,28 @@
+<div class="form-group"
+	 ng-class="{'has-success': newForm.phone.$valid,
+	 	    	'has-error': newForm.phone.$invalid &&
+	 	    				 newForm.phone.$dirty}">	
+	<label for="phone"
+		   class="col-md-5 form-label">Phone Number:</label>
+	<div class="col-md-7">
+		<div class="input-group">	
+			<input type="tel" 
+				   class="form-control input-sm"
+				   name="phone"
+				   id="phone"
+				   ng-model="newUser.phone" 
+				   placeholder="xxx-xxx-xxxx"
+				   required
+				   ng-minlength=10
+				   ng-maxlength=15>
+			<span class="input-group-addon input-addon">
+				<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+					  ng-show="newForm.phone.$valid"></span>
+				<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+					  ng-show="newForm.phone.$invalid &&
+				  		       newForm.phone.$dirty"></span>
+			</span>
+		</div>
+	</div>
+	<new-phone-errors></new-phone-errors>
+</div>

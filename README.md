@@ -3,7 +3,9 @@ Created by: Kean Drake
 1/14/2015
 
 Description:
-	A project designed to help interns learn and familiarize themselves with the Banno/ProfitStars process. The goal is to create a webpage that interacts with a database to view and modify user profiles.
+	A project designed to help interns learn and familiarize themselves with the Banno/ProfitStars process. The goal is to create a webpage that interacts with a database to view and modify user profiles. 
+
+	Project utilizes: AngularJS, ui-router, ngResource, and ui-bootstrap
 
 
 Install/Run:

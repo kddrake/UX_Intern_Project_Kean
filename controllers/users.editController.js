@@ -1,6 +1,6 @@
-app.controller('users.editController', function($scope, $state, userService, promiseFactory) {
+app.controller('users.editController', function($scope, $state, userService) {
 	$scope.user = userService.setUser();
-	console.log("user: ", $scope.user);
+	$scope.userBeforeEdit = angular.copy($scope.user);
 
 	$scope.editUser = function(user) {
 		userService.editUser(user);

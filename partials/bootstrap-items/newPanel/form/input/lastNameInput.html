@@ -1,0 +1,27 @@
+<div class="form-group"
+	 ng-class="{'has-success': newForm.last.$valid,
+	 			'has-error': newForm.last.$invalid &&
+	 						 newForm.last.$dirty}">	
+	<label for="lastName"
+		   class="col-md-5 form-label">Last Name:</label>
+	<div class="col-md-7">	
+		<div class="input-group">
+			<input type="text" 
+				   class="form-control input-sm"
+				   name="last"
+				   id="lastName"
+				   ng-model="newUser.lastName" 
+				   placeholder="Last name"
+				   required
+				   ng-maxlength=32>
+			<span class="input-group-addon input-addon">
+				<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+					  ng-show="newForm.last.$valid"></span>
+				<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+					  ng-show="newForm.last.$invalid &&
+				  		       newForm.last.$dirty"></span>
+			</span>
+		</div>
+	</div>
+	<new-last-name-errors></new-last-name-errors>
+</div>

@@ -16,8 +16,17 @@ td {
 	margin: 2em;
 }
 
-label {
-	font-weight: bold;
+.input-addon {
+	min-width: 1.5em;
+}
+
+.input-glyphicon {
+	padding-left: .5em;
+}
+
+.error-panel {
+	padding: .125em .125em 0em .5em;
+	font-style: italic;
 }
 
 .header {
@@ -42,4 +51,9 @@ label {
 
 	font-size: xx-small;
 	color: black;
+}
+
+.form-label {
+	padding: .5em 1em;
+	text-align: left;
 }

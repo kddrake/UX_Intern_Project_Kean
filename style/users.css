@@ -1,5 +1,5 @@
 #usersList {
-	margin: 0em 0em 1em 0em;
+	margin: .5em;
 	border: .0625em solid lightgray;
 		border-radius: 1em 1em 0em 0em;
 	padding: 0em;
@@ -16,17 +16,32 @@
 	text-align: center;
 }
 
-.users{
-	margin: .25em .5em;
-	border: .0625em solid lightgray;
-		border-radius: .25em;
-	padding: .25em;
-
-	background: azure;
-
-	text-align: center;
+.userButtonBar {
+	display: inline-block;
+	margin: 0em auto;
+	padding: 0em;
 }
 
-.usersLinks {
-	color: black;
+.fixed-panel {
+	min-height: 55em;
+	max-height: 55em;
+	overflow-y: auto;
+}
+
+.search-bars {
+	margin: 1em;
+}
+
+.user-search-addon {
+	min-width: 3em;
+	max-width: 3em;
+}
+
+.user-panel-header {
+	padding: .125em .25em;
+}
+
+.user-panel-body {
+	padding: .125em 0em;
+	text-align: center;
 }

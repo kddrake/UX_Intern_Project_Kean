@@ -1,4 +1,4 @@
-app.controller('users.profileController', function($scope, $state, $stateParams, $timeout, userService) {
+app.controller('users.profileController', function($scope, $state, userService) {
 	$scope.user = userService.setUser();
 	
 	$scope.exitButton = function() {

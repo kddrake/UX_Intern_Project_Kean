@@ -5,13 +5,25 @@
 		<script src="node_modules/angular/angular.js"></script>
 		<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 		<script src="node_modules/angular-resource/angular-resource.js"></script>
-		
+		<script src="node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
 		<script src="module.js"></script>
 		<script src="routes.js"></script>
-		
+
 		<script src="services/resourceFactory.js"></script>
 		<script src="services/promiseFactory.js"></script>
 		<script src="services/userService.js"></script>
+
+		<script src="directives/editPanel/editFormDirective.js"></script>
+		<script src="directives/editPanel/editFormInputsDirectives.js"></script>
+		<script src="directives/editPanel/editFormErrorsDirectives.js"></script>
+		<script src="directives/newPanel/newFormDirective.js"></script>
+		<script src="directives/newPanel/newFormInputsDirectives.js"></script>
+		<script src="directives/newPanel/newFormErrorsDirectives.js"></script>
+		<script src="directives/profilePanel/profileInfoPanelDirective.js"></script>
+		<script src="directives/usersPanel/filtersPanelDirectives.js"></script>
+		<script src="directives/usersPanel/userAccordionDirectives.js"></script>
+
 
 		<script src="controllers/homeController.js"></script>
 		<script src="controllers/usersController.js"></script>
@@ -19,12 +31,14 @@
 		<script src="controllers/users.profileController.js"></script>
 		<script src="controllers/users.editController.js"></script>
 
+
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" href="style/global.css">
 		<link rel="stylesheet" href="style/home.css">
 		<link rel="stylesheet" href="style/users.new.css">
 		<link rel="stylesheet" href="style/users.css">
-		<link rel="stylesheet" href="style/userProfile.css">
-		<link rel="stylesheet" href="style/editProfile.css">
+		<link rel="stylesheet" href="style/users.profile.css">
+		<link rel="stylesheet" href="style/users.edit.css">
 	</head>
 	<body>
 		<div ui-view></div>

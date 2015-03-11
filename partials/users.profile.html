@@ -1,27 +1,25 @@
-<div ng-model="profileContainer" 
-	 class="profileContainer">
-
-	<fieldset class="profile">
-		<button ng-click="exitButton()" 
-		   		class="xButton">X</button>
-				
-		<div class="header">{{user.lastName+ ", " + user.firstName}}</div>
-		<hr>
-
-		<table class="userData">
-			<tr>
-				<th>Phone:</th>
-				<th>Email:</th>
-			</tr>
-			<tr>
-				<td>{{user.phone}}</td>
-				<td>{{user.email}}</td>
-			</tr>
-		</table>
-		<button ng-click="deleteUser(user)"
-		   		class="editButton">Delete</button>
-		<button ng-click="editButton()"
-		   		class="editButton">Edit</button>
-
-	</fieldset>
+<div class="col-md-8">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h1 class="panel-title">
+				<b>{{user.firstName + " " + user.lastName}}</b>
+				<a ui-sref="home.users" 
+		   		   class="close">
+		   		   <span class="glyphicon glyphicon-remove"></span>
+		   		</a>
+		   </h3>
+		</div>
+		<div class="panel-body">
+			<profile-info-panel></profile-info-panel>
+		</div>
+		<div class="panel-footer panel-info">
+				<a ui-sref="home.users.edit({id: user._id})" 
+				   class="btn btn-warning pull-right">
+					<span class="glyphicon glyphicon-pencil"></span>
+				</a>
+		  		<button type="button" class="btn btn-danger" ng-click="deleteUser(user)">
+					<span class="glyphicon glyphicon-trash"></span>
+				</button>
+		</div>
+	</div>
 </div>

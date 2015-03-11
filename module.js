@@ -1,1 +1,1 @@
-var app = angular.module('uxiApp', ['ngResource','ui.router']);
+var app = angular.module('uxiApp', ['ngResource','ui.router', 'ui.bootstrap']);

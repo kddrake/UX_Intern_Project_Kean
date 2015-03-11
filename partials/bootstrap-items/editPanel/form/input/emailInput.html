@@ -1,0 +1,11 @@
+<div class="form-group"
+	 ng-class="{'has-success': editForm.email.$valid,
+	 			'has-error': editForm.email.$invalid &&
+	 						 editForm.email.$dirty}">	
+	<label for="email"
+		   class="col-md-5 form-label">Email Address:</label>
+	<div class="col-md-7">
+		<p class="form-control-static">{{user.email}}</p>
+	</div>
+	<edit-email-errors></edit-email-errors>
+</div>

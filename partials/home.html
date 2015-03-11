@@ -1,11 +1,11 @@
-<div id="homeNav">
-	<a ui-sref="home" class="uiButton">Home</a>
-	<a ui-sref="home.users" class="uiButton">Users</a>
-	<a ui-sref="home.users.new" class ="uiButton">New Profile</a> 
-	<a ui-sref="home.users.profile" class="uiButton">Profile</a>
-	<a ui-sref="home.users.edit" class="uiButton">Edit Profile</a>
-</div>
+<div class="container-fluid objectOverflow">
+	<div class="row">
+		<nav class="navbar navbar-default">
+			<ul class="nav navbar-nav">
+				<li><a ui-sref="home.users">Users</a></li>
+			</ul>
+		</nav>
+	</div>
 
-<div class="content">
 	<div ui-view></div>
 </div>
