@@ -3,25 +3,9 @@
 	 			'has-error': editForm.email.$invalid &&
 	 						 editForm.email.$dirty}">	
 	<label for="email"
-		   class="col-sm-5 form-label">Email Address:</label>
-	<div class="col-sm-7">
-		<div class="input-group">	
-			<input type="email" 
-				   class="form-control input-sm"
-				   name="email"
-				   id="email"
-				   ng-model="editUser.email" 
-				   placeholder="{{user.email}}"
-				   required
-				   ng-minlength=6>
-			<span class="input-group-addon input-addon">
-				<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
-					  ng-show="editForm.email.$valid"></span>
-				<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
-					  ng-show="editForm.email.$invalid &&
-				  		       editForm.email.$dirty"></span>
-			</span>
-		</div>
+		   class="col-md-5 form-label">Email Address:</label>
+	<div class="col-md-7">
+		<p class="form-control-static">{{user.email}}</p>
 	</div>
 	<edit-email-errors></edit-email-errors>
 </div>

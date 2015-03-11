@@ -1,0 +1,10 @@
+<form name="newForm" class="form-horizontal">
+	<first-name-input></first-name-input>
+	<last-name-input></last-name-input>
+	<phone-input></phone-input>
+	<email-input></email-input>
+	<button type="submit" 
+			class="btn btn-success pull-right"
+			ng-disable="newForm.$invalid || newForm.$pristine"
+			ng-click="addUser(newUser)">Add User</button>
+</form>
