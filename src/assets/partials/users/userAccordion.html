@@ -1,0 +1,65 @@
+<div class="fixed-users">	
+	<accordion close-others="true">
+		<accordion-group heading="{{user.firstName + ' ' + user.lastName}}"
+						 ng-repeat="user in users | filter: search | orderBy: 'lastName'">
+			<div class="userButtonBar">
+				<div class="row center-block">
+					<div class="col-md-12">	
+						<div class="btn-toolbar" role="toolbar">
+							
+							<div class="btn-group btn-group-sm" role="group">
+								<label class="btn btn-info"
+									   ng-model="userInfo.phone"
+									   ng-click="phone = !phone"
+									   btn-checkbox>
+									<span class="glyphicon glyphicon-phone"></span>
+								</label>
+
+								<label class="btn btn-info"
+									   ng-model="userInfo.email"
+									   ng-click="email = !email"
+									   btn-checkbox>
+									<span class="glyphicon glyphicon-envelope"></span>
+								</label>
+							</div>
+
+							<div class="btn-group btn-group-sm" role="group">
+								<a ui-sref="home.users.profile({id: user._id})" class="btn btn-info btn-sm">
+									<span class="glyphicon glyphicon-eye-open"></span>
+								</a>
+
+								<a ui-sref="home.users.edit({id: user._id})" class="btn btn-warning">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">		
+					<div class="panel panel-info"
+						 ng-show="phone">
+						<div class="panel-heading user-panel-header">
+							<h5 class="panel-title">Phone</h5>
+						</div>
+						<div class="panel-body user-panel-body">
+							{{user.phone}}
+						</div>
+					</div>
+
+					<div class="panel panel-info"
+						 ng-show="email">
+						<div class="panel-heading user-panel-header">
+							<h5 class="panel-title">Email</h5>
+						</div>
+						<div class="panel-body user-panel-body">
+							{{user.email}}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</accordion-group>
+	</accordion>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html ng-app="uxiApp">
+	<head>
+		<script src="../node_modules/angular/angular.js"></script>
+		<script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="../node_modules/angular-resource/angular-resource.js"></script>
+		<script src="../node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+		<script src="assets/scripts/module.js"></script>
+		<script src="assets/scripts/routes.js"></script>
+
+		<script src="assets/scripts/services/resourceFactory.js"></script>
+		<script src="assets/scripts/services/promiseFactory.js"></script>
+		<script src="assets/scripts/services/userService.js"></script>
+
+		<script src="assets/scripts/directives/editFormDirective.js"></script>
+		<script src="assets/scripts/directives/newFormDirective.js"></script>
+		<script src="assets/scripts/directives/filtersPanelDirective.js"></script>
+		<script src="assets/scripts/directives/userAccordionDirective.js"></script>
+
+		<script src="assets/scripts/controllers/homeController.js"></script>
+		<script src="assets/scripts/controllers/usersController.js"></script>
+		<script src="assets/scripts/controllers/users.newController.js"></script>
+		<script src="assets/scripts/controllers/users.profileController.js"></script>
+		<script src="assets/scripts/controllers/users.editController.js"></script>
+
+		<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/global.css">
+		<link rel="stylesheet" href="assets/css/home.css">
+		<link rel="stylesheet" href="assets/css/users.new.css">
+		<link rel="stylesheet" href="assets/css/users.css">
+		<link rel="stylesheet" href="assets/css/users.profile.css">
+		<link rel="stylesheet" href="assets/css/users.edit.css">
+	</head>
+	<body>
+		<div ui-view></div>
+	</body>
+</html>

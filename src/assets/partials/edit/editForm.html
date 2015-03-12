@@ -1,0 +1,94 @@
+<form name="editForm" class="form-horizontal">
+	<div class="form-group"
+		 ng-class="{'has-success': editForm.first.$valid,
+		 			'has-error': editForm.first.$invalid &&
+		 						 editForm.first.$dirty}">
+		<label for="firstName"
+			   class="col-md-5 form-label">First Name:</label>
+		<div class="col-md-7">	
+			<div class="input-group">
+				<input type="text"  
+					   class="form-control input-sm"
+					   name="first"
+					   id="firstName"
+					   ng-model="editUser.firstName" 
+					   placeholder="{{user.firstName}}"
+					   required
+					   ng-maxlength=32>
+				<span class="input-group-addon input-addon">
+					<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+						  ng-show="editForm.first.$valid"></span>
+					<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+						  ng-show="editForm.first.$invalid &&
+					  		       editForm.first.$dirty"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="form-group"
+		 ng-class="{'has-success': editForm.last.$valid,
+		 			'has-error': editForm.last.$invalid &&
+		 						 editForm.last.$dirty}">	
+		<label for="lastName"
+			   class="col-md-5 form-label">Last Name:</label>
+		<div class="col-md-7">	
+			<div class="input-group">
+				<input type="text" 
+					   class="form-control input-sm"
+					   name="last"
+					   id="lastName"
+					   ng-model="editUser.lastName" 
+					   placeholder="{{user.lastName}}"
+					   required
+					   ng-maxlength=32>
+				<span class="input-group-addon input-addon">
+					<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+						  ng-show="editForm.last.$valid"></span>
+					<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+						  ng-show="editForm.last.$invalid &&
+					  		       editForm.last.$dirty"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="form-group"
+		 ng-class="{'has-success': editForm.phone.$valid,
+		 	    	'has-error': editForm.phone.$invalid &&
+		 	    				 editForm.phone.$dirty}">	
+		<label for="phone"
+			   class="col-md-5 form-label">Phone Number:</label>
+		<div class="col-md-7">
+			<div class="input-group">	
+				<input type="tel" 
+					   class="form-control input-sm"
+					   name="phone"
+					   id="phone"
+					   ng-model="editUser.phone" 
+					   placeholder="{{user.phone}}"
+					   required
+					   ng-minlength=10
+					   ng-maxlength=15>
+				<span class="input-group-addon input-addon">
+					<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+						  ng-show="editForm.phone.$valid"></span>
+					<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+						  ng-show="editForm.phone.$invalid &&
+					  		       editForm.phone.$dirty"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="form-group"
+		 ng-class="{'has-success': editForm.email.$valid,
+		 			'has-error': editForm.email.$invalid &&
+		 						 editForm.email.$dirty}">	
+		<label for="email"
+			   class="col-md-5 form-label">Email Address:</label>
+		<div class="col-md-7">
+			<p class="form-control-static">{{user.email}}</p>
+		</div>
+	</div>
+	<button type="submit" 
+			class="btn btn-default btn-warning pull-right"
+			ng-click="editUser(user)">Apply Changes</button>
+</form>
