@@ -5,6 +5,6 @@ app.controller('users.editController', function($scope, $state, userService) {
 	$scope.editUser = function(user) {
 		userService.editUser(user);
 		userService.getUsers();
-		$state.go('^.profile',{id: $scope.user._id});
+		$state.go('users.profile',{id: $scope.user._id});
 	};
 });

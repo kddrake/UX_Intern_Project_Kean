@@ -1,21 +1,3 @@
-#usersList {
-	margin: .5em;
-	border: .0625em solid lightgray;
-		border-radius: 1em 1em 0em 0em;
-	padding: 0em;
-
-	position: absolute;
-	top: 5%;
-
-	height: 95%;
-	width: 20%;
-
-	box-shadow: 0em 0em .5em darkgray;
-
-	background: aliceblue;
-	text-align: center;
-}
-
 .userButtonBar {
 	display: inline-block;
 	margin: 0em auto;
@@ -23,8 +5,12 @@
 }
 
 .fixed-panel {
-	min-height: 55em;
-	max-height: 55em;
+	height: 95vh;
+	margin-bottom: 1em;
+}
+
+.fixed-panel-scroll {
+	height: 85vh;
 	overflow-y: auto;
 }
 

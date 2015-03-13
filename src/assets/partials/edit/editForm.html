@@ -11,8 +11,8 @@
 					   class="form-control input-sm"
 					   name="first"
 					   id="firstName"
-					   ng-model="editUser.firstName" 
-					   placeholder="{{user.firstName}}"
+					   ng-model="user.firstName" 
+					   placeholder="{{userBeforeEdit.firstName}}"
 					   required
 					   ng-maxlength=32>
 				<span class="input-group-addon input-addon">
@@ -37,8 +37,8 @@
 					   class="form-control input-sm"
 					   name="last"
 					   id="lastName"
-					   ng-model="editUser.lastName" 
-					   placeholder="{{user.lastName}}"
+					   ng-model="user.lastName" 
+					   placeholder="{{userBeforeEdit.lastName}}"
 					   required
 					   ng-maxlength=32>
 				<span class="input-group-addon input-addon">
@@ -63,8 +63,8 @@
 					   class="form-control input-sm"
 					   name="phone"
 					   id="phone"
-					   ng-model="editUser.phone" 
-					   placeholder="{{user.phone}}"
+					   ng-model="user.phone" 
+					   ng-init="{{userBeforeEdit.phone}}"
 					   required
 					   ng-minlength=10
 					   ng-maxlength=15>

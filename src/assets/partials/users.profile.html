@@ -3,7 +3,7 @@
 		<div class="panel-heading">
 			<h1 class="panel-title">
 				<b>{{user.firstName + " " + user.lastName}}</b>
-				<a ui-sref="home.users" 
+				<a ui-sref="users" 
 		   		   class="close">
 		   		   <span class="glyphicon glyphicon-remove"></span>
 		   		</a>
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="panel-footer panel-info">
-				<a ui-sref="home.users.edit({id: user._id})" 
+				<a ui-sref="users.edit({id: user._id})" 
 				   class="btn btn-warning pull-right">
 					<span class="glyphicon glyphicon-pencil"></span>
 				</a>
