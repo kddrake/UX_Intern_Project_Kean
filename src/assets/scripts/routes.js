@@ -3,22 +3,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('users', {
 				url:"/users",
-				templateUrl:"assets/partials/users.html",
+				template:"<users></users>",
 				controller: "usersController"
 			})
 			.state('users.new', {
 				url:"/new",
-				templateUrl:"assets/partials/users.new.html",
+				template:"<users-new></users-new>",
 				controller:"users.newController"
 			})
 			.state('users.profile', {
 				url:"/:id",
-				templateUrl:"assets/partials/users.profile.html",
+				template:"<users-profile></users-profile>",
 				controller: "users.profileController"
 			})
 			.state('users.edit', {
 				url:"/edit/:id",
-				templateUrl:"assets/partials/users.edit.html",
+				template:"<users-edit></users-edit>",
 				controller: "users.editController"
 			});
 	});

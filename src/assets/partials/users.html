@@ -87,101 +87,105 @@
 		</div>
 	</div>
 
-	<div class="col-md-4"
-		 ng-show="filters">
+	<div class="col-md-8">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title">
-							Search & Filter Users
-							<button type="button"
-								    class="btn close pull-right" 
-			   		   		   		ng-click="filters = !filters">
-			   		   			<span class="glyphicon glyphicon-remove"></span>
-			   				</button>
-			   			</h3>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="btn-group btn-group-xs btn-group-justified" role="group">
-									<label class="btn btn-primary" 
-										   ng-model="filterBy.firstName" 
-										   ng-click="filterFirst = !filterFirst;
-										   		     filterLast = false;
-										   		     filterPhone = false;
-										   		     filterEmail = false;
-										   			 filterCount();
-										   			 search.firstName = ''"
-										   btn-checkbox>
-										First
-									</label>
-									<label class="btn btn-primary" 
-										   ng-model="filterBy.lastName" 
-										   ng-click="filterLast = !filterLast; 
-										   			 search.lastName = ''"
-										   btn-checkbox>
-										Last
-									</label>
-									<label class="btn btn-primary" 
-										   ng-model="filterBy.phone" 
-										   ng-click="filterPhone = !filterPhone;; 
-										   			 search.firstName = ''"
-										   btn-checkbox>
-										Phone
-									</label>
-									<label class="btn btn-primary" 
-										   ng-model="filterBy.email" 
-										   ng-click="filterEmail = !filterEmail;;
-										   			 search.firstName = ''"
-										   btn-checkbox>
-										Email
-									</label>
-								</div>
+			<div class="col-md-8"
+				 ng-show="filters">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									Search & Filter Users
+									<button type="button"
+										    class="btn close pull-right" 
+					   		   		   		ng-click="filters = !filters">
+					   		   			<span class="glyphicon glyphicon-remove"></span>
+					   				</button>
+					   			</h3>
 							</div>
-						</div>
-						<div class="row">	
-							<div class="col-md-12">	
-								<div class="input-group search-bars"
-									 ng-show="filterFirst">
-									<span class="input-group-addon user-search-addon">
-										<b>F</b>
-									</span>
-									<input type="text"
-										   class="form-control" 
-										   ng-model="search.firstName" 
-										   placeholder="Search by first name">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="btn-group btn-group-xs btn-group-justified" role="group">
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.firstName" 
+												   ng-click="filterFirst = !filterFirst;
+												   		     filterLast = false;
+												   		     filterPhone = false;
+												   		     filterEmail = false;
+												   			 filterCount();
+												   			 search.firstName = ''"
+												   btn-checkbox>
+												First
+											</label>
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.lastName" 
+												   ng-click="filterLast = !filterLast; 
+												   			 search.lastName = ''"
+												   btn-checkbox>
+												Last
+											</label>
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.phone" 
+												   ng-click="filterPhone = !filterPhone;; 
+												   			 search.firstName = ''"
+												   btn-checkbox>
+												Phone
+											</label>
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.email" 
+												   ng-click="filterEmail = !filterEmail;;
+												   			 search.firstName = ''"
+												   btn-checkbox>
+												Email
+											</label>
+										</div>
+									</div>
 								</div>
-								<div class="input-group search-bars"
-									 ng-show="filterLast">
-									<span class="input-group-addon user-search-addon">
-										<b>L</b>
-									</span>
-									<input type="text"
-										   class="form-control" 
-										   ng-model="search.lastName" 
-										   placeholder="Search by last name">
-								</div>
-								<div class="input-group search-bars"
-									 ng-show="filterPhone">
-									<span class="input-group-addon user-search-addon">
-										<span class="glyphicon glyphicon-phone"></span>
-									</span>
-									<input type="text"
-										   class="form-control" 
-										   ng-model="search.phone" 
-										   placeholder="Search by phone">
-								</div>
-								<div class="input-group search-bars"
-									 ng-show="filterEmail">
-									<span class="input-group-addon user-search-addon">
-										<span class="glyphicon glyphicon-envelope"></span>
-									</span>
-									<input type="text"
-										   class="form-control" 
-										   ng-model="search.email" 
-										   placeholder="Search by email">
+								<div class="row">	
+									<div class="col-md-12">	
+										<div class="input-group search-bars"
+											 ng-show="filterFirst">
+											<span class="input-group-addon user-search-addon">
+												<b>F</b>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.firstName" 
+												   placeholder="Search by first name">
+										</div>
+										<div class="input-group search-bars"
+											 ng-show="filterLast">
+											<span class="input-group-addon user-search-addon">
+												<b>L</b>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.lastName" 
+												   placeholder="Search by last name">
+										</div>
+										<div class="input-group search-bars"
+											 ng-show="filterPhone">
+											<span class="input-group-addon user-search-addon">
+												<span class="glyphicon glyphicon-phone"></span>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.phone" 
+												   placeholder="Search by phone">
+										</div>
+										<div class="input-group search-bars"
+											 ng-show="filterEmail">
+											<span class="input-group-addon user-search-addon">
+												<span class="glyphicon glyphicon-envelope"></span>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.email" 
+												   placeholder="Search by email">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -189,9 +193,11 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<div ui-view></div>
+			</div>
+		</div>
 	</div>
 
-	<div class="col-md-8">
-		<div ui-view></div>
-	</div>
 </div>
