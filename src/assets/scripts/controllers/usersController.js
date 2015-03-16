@@ -1,4 +1,4 @@
-app.controller('usersController', function($scope, promiseFactory, userService) {
+app.controller('usersController', function($scope, userService) {
 	userService.getUsers();
 	$scope.user = angular.copy(userService.user);
 	$scope.orderRadio = 'firstName';

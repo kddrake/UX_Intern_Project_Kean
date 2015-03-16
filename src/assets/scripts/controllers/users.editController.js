@@ -1,5 +1,9 @@
 app.controller('users.editController', function($scope, $state, userService) {
-	$scope.user = userService.setUser();
+	//$scope.user = userService.setUser();
+	if ($scope.user == null) {
+		$state.go('users');
+	}
+
 	$scope.userBeforeEdit = angular.copy($scope.user);
 
 	$scope.editUser = function(user) {

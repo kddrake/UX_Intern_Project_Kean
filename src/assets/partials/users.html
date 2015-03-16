@@ -22,7 +22,6 @@
 					<div class="col-md-12 fixed-panel-scroll">	
 						<accordion close-others="true">
 							<accordion-group heading="{{user.firstName + ' ' + user.lastName}}"
-										     ng-click="selectUser()"
 											 ng-repeat="user in users | filter: search | orderBy: orderRadio: reverse">
 								<div class="row userButtonBar">
 									<div class="col-md-6">	
@@ -46,7 +45,9 @@
 									</div>
 									<div class="col-md-6">
 										<div class="btn-group btn-group-sm btn-group-justified" role="group">
-											<a ui-sref="users.profile({id: user._id})" class="btn btn-info btn-sm">
+											<a ui-sref="users.profile({id: user._id})" 
+											   ng-click="selectUser()"
+											   class="btn btn-info btn-sm">
 												<span class="glyphicon glyphicon-eye-open"></span>
 											</a>
 											<a ui-sref="users.edit({id: user._id})" class="btn btn-warning">

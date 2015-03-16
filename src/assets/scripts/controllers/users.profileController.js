@@ -1,7 +1,10 @@
-app.controller('users.profileController', function($scope, $state, userService) {
+app.controller('users.profileController', function($scope, $state, $timeout, userService) {
 	//$scope.user = userService.setUser();
-	console.log($scope.user); //DELETE AFTER FUNCTIONAL
 	
+	if ($scope.user == null) {
+		$state.go('users');
+	}
+
 	$scope.editButton = function() {
 		$state.go('users.edit',{id: $scope.user._id});
 	};
