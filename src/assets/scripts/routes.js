@@ -8,9 +8,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			})
 			.state('users.new', {
 				url:"/new",
-				template:"<users-new></users-new>",
+				template:"<users-new add-user='addUser(user)'></users-new>",
 				controller:"users.newController"
-			})
+			}) 
 			.state('users.profile', {
 				url:"/:id",
 				template:"<users-profile user='user' delete-user='deleteUser(user)'></users-profile>",
@@ -18,7 +18,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			})
 			.state('users.edit', {
 				url:"/edit/:id",
-				template:"<users-edit user='user'></users-edit>",
+				template:"<users-edit user='user' edit-user='editUser(user)'></users-edit>",
 				controller: "users.editController"
 			});
 	});

@@ -4,7 +4,8 @@ app.directive('usersEdit', function() {
 		replace: true,
 		templateUrl: 'assets/partials/users.edit.html',
 		scope: {
-			user: '='
+			user: '=',
+			editUser: '&'
 		}
 	};
 });
