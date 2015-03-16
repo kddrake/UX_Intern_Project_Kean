@@ -4,7 +4,8 @@ app.directive('usersProfile', function() {
 		replace: true,
 		templateUrl: 'assets/partials/users.profile.html',
 		scope: {
-			user: '='
+			user: '=',
+			deleteUser: '&'
 		}
 	};
 });

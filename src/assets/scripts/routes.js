@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			})
 			.state('users.profile', {
 				url:"/:id",
-				template:"<users-profile user='user'></users-profile>",
+				template:"<users-profile user='user' delete-user='deleteUser(user)'></users-profile>",
 				controller: "users.profileController"
 			})
 			.state('users.edit', {

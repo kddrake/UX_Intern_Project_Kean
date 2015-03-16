@@ -7,9 +7,8 @@ app.controller('usersController', function($scope, userService) {
 	this.userInfo = {phone: false,
 					 email: false};
 
-
-
 	$scope.deleteUser = function(user) {
+		console.log("Delete User");
 		userService.deleteUser(user);
 	};
 
