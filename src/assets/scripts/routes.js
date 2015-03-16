@@ -8,7 +8,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			})
 			.state('users.new', {
 				url:"/new",
-				template:"<users-new add-user='addUser(user)'></users-new>",
+				template:"<users-new user='user' add-user='addUser(user)'></users-new>",
 				controller:"users.newController"
 			}) 
 			.state('users.profile', {

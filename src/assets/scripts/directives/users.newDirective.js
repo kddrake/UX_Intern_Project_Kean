@@ -4,6 +4,7 @@ app.directive('usersNew', function() {
 		replace: true,
 		templateUrl: 'assets/partials/users.new.html',
 		scope: {
+			user: '=',
 			addUser: '&'
 		}
 	};
