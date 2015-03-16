@@ -31,3 +31,17 @@
 	padding: .125em 0em;
 	text-align: center;
 }
+
+.filter-panel {
+	margin-top: 1em;
+	margin-bottom: .5em;
+}
+
+.filter-panel-heading {
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+
+.panel-filter {
+	padding-top: 0em;
+}

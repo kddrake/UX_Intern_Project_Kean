@@ -89,5 +89,6 @@
 	</div>
 	<button type="submit" 
 			class="btn btn-default btn-warning pull-right"
+			ng-disabled="editForm.$invalid"
 			ng-click="editUser(user)">Apply Changes</button>
 </form>

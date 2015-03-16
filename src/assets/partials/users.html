@@ -22,38 +22,36 @@
 					<div class="col-md-12 fixed-panel-scroll">	
 						<accordion close-others="true">
 							<accordion-group heading="{{user.firstName + ' ' + user.lastName}}"
-											 ng-repeat="user in users | filter: search | orderBy: 'lastName'">
-								<div class="userButtonBar">
-									<div class="row center-block">
-										<div class="col-md-12">	
-											<div class="btn-toolbar" role="toolbar">
-												
-												<div class="btn-group btn-group-sm" role="group">
-													<label class="btn btn-info"
-														   ng-model="userInfo.phone"
-														   ng-click="phone = !phone"
-														   btn-checkbox>
-														<span class="glyphicon glyphicon-phone"></span>
-													</label>
-
-													<label class="btn btn-info"
-														   ng-model="userInfo.email"
-														   ng-click="email = !email"
-														   btn-checkbox>
-														<span class="glyphicon glyphicon-envelope"></span>
-													</label>
-												</div>
-
-												<div class="btn-group btn-group-sm" role="group">
-													<a ui-sref="users.profile({id: user._id})" class="btn btn-info btn-sm">
-														<span class="glyphicon glyphicon-eye-open"></span>
-													</a>
-
-													<a ui-sref="users.edit({id: user._id})" class="btn btn-warning">
-														<span class="glyphicon glyphicon-pencil"></span>
-													</a>
-												</div>
-											</div>
+										     ng-click="selectUser()"
+											 ng-repeat="user in users | filter: search | orderBy: orderRadio: reverse">
+								<div class="row userButtonBar">
+									<div class="col-md-6">	
+										<div class="btn-group btn-group-sm btn-group-justified" role="group">
+											<label class="btn btn-info"
+												   ng-model="userInfo.phone"
+												   ng-click="phone = !phone"
+												   tooltip="View Phone Number"
+												   tooltip-trigger="hover"
+												   tooltip-popup-delay='1000'
+												   btn-checkbox>
+												<span class="glyphicon glyphicon-phone"></span>
+											</label>
+											<label class="btn btn-info"
+												   ng-model="userInfo.email"
+												   ng-click="email = !email"
+												   btn-checkbox>
+												<span class="glyphicon glyphicon-envelope"></span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="btn-group btn-group-sm btn-group-justified" role="group">
+											<a ui-sref="users.profile({id: user._id})" class="btn btn-info btn-sm">
+												<span class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											<a ui-sref="users.edit({id: user._id})" class="btn btn-warning">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -94,27 +92,27 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Search & Filter Users
-									<button type="button"
-										    class="btn close pull-right" 
-					   		   		   		ng-click="filters = !filters">
-					   		   			<span class="glyphicon glyphicon-remove"></span>
-					   				</button>
-					   			</h3>
-							</div>
-							<div class="panel-body">
+							<div class="panel-body panel-filter">
+								<div class="row">	
+									<div class="col-md-12">
+										<div class="panel panel-info filter-panel">
+											<div class="panel-heading search-panel-heading">
+											Search By
+											<button type="button"
+												    class="btn close pull-right" 
+							   		   		   		ng-click="filters = !filters">
+							   		   			<span class="glyphicon glyphicon-remove"></span>
+							   				</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<div class="row">
 									<div class="col-md-12">
 										<div class="btn-group btn-group-xs btn-group-justified" role="group">
 											<label class="btn btn-primary" 
 												   ng-model="filterBy.firstName" 
 												   ng-click="filterFirst = !filterFirst;
-												   		     filterLast = false;
-												   		     filterPhone = false;
-												   		     filterEmail = false;
-												   			 filterCount();
 												   			 search.firstName = ''"
 												   btn-checkbox>
 												First
@@ -184,6 +182,50 @@
 												   class="form-control" 
 												   ng-model="search.email" 
 												   placeholder="Search by email">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8">
+										<div class="panel panel-info filter-panel">
+											<div class="panel-heading filter-panel-heading">
+											Order By
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="panel panel-info filter-panel">
+											<div class="panel-heading filter-panel-heading">
+											Order Direction
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8">
+										<div class="btn-group btn-group-xs btn-group-justified" role="group">
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'firstName'">
+												First
+											</label>
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'lastName'">
+												Last
+											</label>
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'phone'">
+												Phone
+											</label>
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'email'">
+												Email
+											</label>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="btn-group btn-group-xs btn-group-justified" role="group">
+											<label class="btn btn-primary" ng-model="reverse" btn-radio="false">
+												In Order
+											</label>
+											<label class="btn btn-primary" ng-model="reverse" btn-radio="true">
+												Reverse
+											</label>
 										</div>
 									</div>
 								</div>
