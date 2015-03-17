@@ -1,13 +1,16 @@
 app.controller('usersController', function($scope, userService) {
 	userService.getUsers();
 	$scope.user = angular.copy(userService.user);
+	$scope.newUser = angular.copy($scope.user);
+	console.log("usersContoller: " + $scope.newUser);
+
 	$scope.orderRadio = 'firstName';
 	$scope.reverse = false;
 	this.userInfo = {phone: false,
 					 email: false};
 
 	$scope.addUser = function(user) {
-		console.log(user);
+		console.log("addUser: " + user);
 		userService.addUser(user);
 	};
 

@@ -11,7 +11,7 @@
 					   class="form-control input-sm"
 					   name="first"
 					   id="firstName"
-					   ng-model="user.firstName" 
+					   ng-model="newUser.firstName" 
 					   placeholder="First name"
 					   required
 					   ng-maxlength=32>
@@ -37,7 +37,7 @@
 					   class="form-control input-sm"
 					   name="last"
 					   id="lastName"
-					   ng-model="user.lastName" 
+					   ng-model="newUser.lastName" 
 					   placeholder="Last name"
 					   required
 					   ng-maxlength=32>
@@ -63,7 +63,7 @@
 					   class="form-control input-sm"
 					   name="phone"
 					   id="phone"
-					   ng-model="user.phone" 
+					   ng-model="newUser.phone" 
 					   placeholder="xxx-xxx-xxxx"
 					   required
 					   ng-minlength=10
@@ -90,7 +90,7 @@
 					   class="form-control input-sm"
 					   name="email"
 					   id="email"
-					   ng-model="user.email" 
+					   ng-model="newUser.email" 
 					   placeholder="user@domain.com"
 					   required
 					   ng-minlength=6>
@@ -107,5 +107,5 @@
 	<a ui-sref="users" 
 	   class="btn btn-success pull-right"
 	   ng-disabled="newForm.$invalid || newForm.$pristine"
-	   ng-click="addUser(user)">Add User</a>
+	   ng-click="addUser(newUser)">Add User</a>
 </form>
