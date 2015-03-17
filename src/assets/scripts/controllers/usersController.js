@@ -1,8 +1,7 @@
-app.controller('usersController', function($scope, userService) {
+app.controller('usersController', function($scope, $state, userService) {
 	userService.getUsers();
 	$scope.user = angular.copy(userService.user);
 	$scope.newUser = angular.copy($scope.user);
-	console.log("usersContoller: " + $scope.newUser);
 
 	$scope.orderRadio = 'firstName';
 	$scope.reverse = false;
@@ -10,7 +9,6 @@ app.controller('usersController', function($scope, userService) {
 					 email: false};
 
 	$scope.addUser = function(user) {
-		console.log("addUser: " + user);
 		userService.addUser(user);
 	};
 
@@ -23,8 +21,18 @@ app.controller('usersController', function($scope, userService) {
 		userService.getUsers();
 	};
 
+	$scope.createEditUser = function() {
+		$scope.modUser = angular.copy($scope.user);
+	}
+
 	$scope.deleteUser = function(user) {
 		userService.deleteUser(user);
+	};
+
+	$scope.redirect = function() {
+		if ($scope.user == null) {
+			$state.go('users');
+		};
 	};
 
 	$scope.$on('UPDATE_USERS', function(event, newUsersList){

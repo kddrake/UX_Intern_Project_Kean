@@ -5,7 +5,9 @@ app.directive('usersProfile', function() {
 		templateUrl: 'assets/partials/users.profile.html',
 		scope: {
 			user: '=',
-			deleteUser: '&'
+			deleteUser: '&',
+			createEditUser: '&',
+			redirect: '&'
 		}
 	};
 });

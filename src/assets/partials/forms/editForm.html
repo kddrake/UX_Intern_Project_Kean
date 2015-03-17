@@ -11,8 +11,8 @@
 					   class="form-control input-sm"
 					   name="first"
 					   id="firstName"
-					   ng-model="user.firstName" 
-					   placeholder="{{userBeforeEdit.firstName}}"
+					   ng-model="modUser.firstName" 
+					   placeholder="{{user.firstName}}"
 					   required
 					   ng-maxlength=32>
 				<span class="input-group-addon input-addon">
@@ -37,8 +37,8 @@
 					   class="form-control input-sm"
 					   name="last"
 					   id="lastName"
-					   ng-model="user.lastName" 
-					   placeholder="{{userBeforeEdit.lastName}}"
+					   ng-model="modUser.lastName" 
+					   placeholder="{{user.lastName}}"
 					   required
 					   ng-maxlength=32>
 				<span class="input-group-addon input-addon">
@@ -63,7 +63,8 @@
 					   class="form-control input-sm"
 					   name="phone"
 					   id="phone"
-					   ng-model="user.phone" 
+					   ng-model="modUser.phone"
+					   placeholder="{{user.phone}}" 
 					   required
 					   ng-minlength=10
 					   ng-maxlength=15>
@@ -84,11 +85,11 @@
 		<label for="email"
 			   class="col-md-5 form-label">Email Address:</label>
 		<div class="col-md-7">
-			<p class="form-control-static">{{user.email}}</p>
+			<p class="form-control-static">{{modUser.email}}</p>
 		</div>
 	</div>
  	<a ui-sref="users"
 	   class="btn btn-default btn-warning pull-right"
 	   ng-disabled="editForm.$invalid"
-	   ng-click="editUser(user)">Apply Changes</a>
+	   ng-click="editUser(modUser)">Apply Changes</a>
 </form>

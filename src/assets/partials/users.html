@@ -51,7 +51,7 @@
 												<span class="glyphicon glyphicon-eye-open"></span>
 											</a>
 											<a ui-sref="users.edit({id: user._id})" 
-											   ng-click="selectUser()"
+											   ng-click="selectUser(); createEditUser()"
 											   class="btn btn-warning">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</a>
