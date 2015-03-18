@@ -1,106 +1,205 @@
 <form name="newForm" class="form-horizontal">
-	<div class="form-group"
-		 ng-class="{'has-success': newForm.first.$valid,
-		 			'has-error': newForm.first.$invalid &&
-		 						 newForm.first.$dirty}">
-		<label for="firstName"
-			   class="col-md-5 form-label">First Name:</label>
-		<div class="col-md-7">	
-			<div class="input-group">
-				<input type="text"  
-					   class="form-control input-sm"
-					   name="first"
-					   id="firstName"
-					   ng-model="newUser.firstName" 
-					   placeholder="First name"
-					   required
-					   ng-maxlength=32>
-				<span class="input-group-addon input-addon">
-					<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
-						  ng-show="newForm.first.$valid"></span>
-					<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
-						  ng-show="newForm.first.$invalid &&
-					  		       newForm.first.$dirty"></span>
-				</span>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group"
+				 ng-class="{'has-success': newForm.first.$valid,
+				 			'has-error': newForm.first.$invalid &&
+				 						 newForm.first.$dirty}">
+				<label for="firstName"
+					   class="col-md-5 form-label">First Name:</label>
+				<div class="col-md-7">	
+					<div class="input-group">
+						<input type="text"  
+							   class="form-control input-sm"
+							   name="first"
+							   id="firstName"
+							   ng-model="newUser.firstName" 
+							   placeholder="First name"
+							   required
+							   ng-maxlength=32>
+						<span class="input-group-addon input-addon">
+							<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+								  ng-show="newForm.first.$valid"></span>
+							<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+								  ng-show="newForm.first.$invalid &&
+							  		       newForm.first.$dirty"></span>
+						</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="form-group"
-		 ng-class="{'has-success': newForm.last.$valid,
-		 			'has-error': newForm.last.$invalid &&
-		 						 newForm.last.$dirty}">	
-		<label for="lastName"
-			   class="col-md-5 form-label">Last Name:</label>
-		<div class="col-md-7">	
-			<div class="input-group">
-				<input type="text" 
-					   class="form-control input-sm"
-					   name="last"
-					   id="lastName"
-					   ng-model="newUser.lastName" 
-					   placeholder="Last name"
-					   required
-					   ng-maxlength=32>
-				<span class="input-group-addon input-addon">
-					<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
-						  ng-show="newForm.last.$valid"></span>
-					<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
-						  ng-show="newForm.last.$invalid &&
-					  		       newForm.last.$dirty"></span>
-				</span>
+	<div class="row"
+		 ng-show="newForm.first.$invalid &&
+		 	      newForm.first.$dirty">
+		<div class="col-md-7 col-md-offset-5">
+			<div class="panel panel-xs panel-danger">
+				<div class="panel-heading panel-danger"
+					 ng-show="newForm.first.$error.required">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>A first name is required.</small>
+				</div>
+				<div class="panel-heading panel-danger"
+					   ng-show="newForm.first.$error.maxlength">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>A first name cannot be longer than 32 characters.</small>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="form-group"
-		 ng-class="{'has-success': newForm.phone.$valid,
-		 	    	'has-error': newForm.phone.$invalid &&
-		 	    				 newForm.phone.$dirty}">	
-		<label for="phone"
-			   class="col-md-5 form-label">Phone Number:</label>
-		<div class="col-md-7">
-			<div class="input-group">	
-				<input type="tel" 
-					   class="form-control input-sm"
-					   name="phone"
-					   id="phone"
-					   ng-model="newUser.phone" 
-					   placeholder="xxx-xxx-xxxx"
-					   required
-					   ng-minlength=10
-					   ng-maxlength=15>
-				<span class="input-group-addon input-addon">
-					<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
-						  ng-show="newForm.phone.$valid"></span>
-					<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
-						  ng-show="newForm.phone.$invalid &&
-					  		       newForm.phone.$dirty"></span>
-				</span>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group"
+				 ng-class="{'has-success': newForm.last.$valid,
+				 			'has-error': newForm.last.$invalid &&
+				 						 newForm.last.$dirty}">	
+				<label for="lastName"
+					   class="col-md-5 form-label">Last Name:</label>
+				<div class="col-md-7">	
+					<div class="input-group">
+						<input type="text" 
+							   class="form-control input-sm"
+							   name="last"
+							   id="lastName"
+							   ng-model="newUser.lastName" 
+							   placeholder="Last name"
+							   required
+							   ng-maxlength=32>
+						<span class="input-group-addon input-addon">
+							<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+								  ng-show="newForm.last.$valid"></span>
+							<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+								  ng-show="newForm.last.$invalid &&
+							  		       newForm.last.$dirty"></span>
+						</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="form-group"
-		 ng-class="{'has-success': newForm.email.$valid,
-		 			'has-error': newForm.email.$invalid &&
-		 						 newForm.email.$dirty}">	
-		<label for="email"
-			   class="col-md-5 form-label">Email Address:</label>
-		<div class="col-md-7">
-			<div class="input-group">	
-				<input type="email" 
-					   class="form-control input-sm"
-					   name="email"
-					   id="email"
-					   ng-model="newUser.email" 
-					   placeholder="user@domain.com"
-					   required
-					   ng-minlength=6>
-				<span class="input-group-addon input-addon">
-					<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
-						  ng-show="newForm.email.$valid"></span>
-					<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
-						  ng-show="newForm.email.$invalid &&
-					  		       newForm.email.$dirty"></span>
-				</span>
+	<div class="row"
+		 ng-show="newForm.last.$invalid &&
+		 	      newForm.last.$dirty">
+		<div class="col-md-7 col-md-offset-5">
+			<div class="panel panel-xs panel-danger">
+				<div class="panel-heading panel-danger"
+					 ng-show="newForm.last.$error.required">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>A last name is required.</small>
+				</div>
+				<div class="panel-heading panel-danger"
+					   ng-show="newForm.last.$error.maxlength">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>A last name cannot be longer than 32 characters.</small>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group"
+				 ng-class="{'has-success': newForm.phone.$valid,
+				 	    	'has-error': newForm.phone.$invalid &&
+				 	    				 newForm.phone.$dirty}">	
+				<label for="phone"
+					   class="col-md-5 form-label">Phone Number:</label>
+				<div class="col-md-7">
+					<div class="input-group">	
+						<input type="tel" 
+							   class="form-control input-sm"
+							   name="phone"
+							   id="phone"
+							   ng-model="newUser.phone" 
+							   placeholder="xxx-xxx-xxxx"
+							   required
+							   ng-minlength=10
+							   ng-maxlength=15>
+						<span class="input-group-addon input-addon">
+							<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+								  ng-show="newForm.phone.$valid"></span>
+							<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+								  ng-show="newForm.phone.$invalid &&
+							  		       newForm.phone.$dirty"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row"
+		 ng-show="newForm.phone.$invalid &&
+		 	      newForm.phone.$dirty">
+		<div class="col-md-7 col-md-offset-5">
+			<div class="panel panel-xs panel-danger">
+				<div class="panel-heading panel-danger"
+					 ng-show="newForm.phone.$error.required">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>A phone number is required.</small>
+				</div>
+				<div class="panel-heading panel-danger"
+					 ng-show="newForm.phone.$error.minlength">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>A phone number cannot be less than 10 characters</small>
+				</div>
+				<div class="panel-heading panel-danger"
+					 ng-show="newForm.phone.$error.maxlength">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>A phone number cannot be longer than 15 characters.</small>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group"
+				 ng-class="{'has-success': newForm.email.$valid,
+				 			'has-error': newForm.email.$invalid &&
+				 						 newForm.email.$dirty}">	
+				<label for="email"
+					   class="col-md-5 form-label">Email Address:</label>
+				<div class="col-md-7">
+					<div class="input-group">	
+						<input type="email" 
+							   class="form-control input-sm"
+							   name="email"
+							   id="email"
+							   ng-model="newUser.email" 
+							   placeholder="user@domain.com"
+							   ng-blur="checkUniqueEmail(newUser.email)"
+							   required
+							   ng-minlength=6>
+						<span class="input-group-addon input-addon">
+							<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
+								  ng-show="newForm.email.$valid"></span>
+							<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
+								  ng-show="newForm.email.$invalid &&
+							  		       newForm.email.$dirty || 
+							  		       !uniqueEmail"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row"
+		 ng-show="newForm.email.$invalid &&
+		 	      newForm.email.$dirty">
+		<div class="col-md-7 col-md-offset-5">
+			<div class="panel panel-xs panel-danger">
+				<div class="panel-heading panel-danger"
+					 ng-show="newForm.email.$error.required">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>An email address is required.</small>
+				</div>
+				<div class="panel-heading panel-danger"
+					 ng-show="newForm.email.$invalid">
+					<span class="glyphicon glyphicon-exclamation-sign"></span> 
+					<small>An email address must include '@' and may include '.' after (e.g user-name@domain.com)</small>
+				</div>
+				<!--<div class="panel-heading panel-danger"
+					   ng-show="!uniqueEmail">
+					<small>{{newForm.email}} is already taken, please try another.</small>
+				</div>-->
 			</div>
 		</div>
 	</div>

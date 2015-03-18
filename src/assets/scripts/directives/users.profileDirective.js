@@ -7,6 +7,7 @@ app.directive('usersProfile', function() {
 			user: '=',
 			deleteUser: '&',
 			createEditUser: '&',
+			openModal:'&',
 			redirect: '&'
 		}
 	};

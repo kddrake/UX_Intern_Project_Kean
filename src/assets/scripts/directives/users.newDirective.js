@@ -5,7 +5,9 @@ app.directive('usersNew', function() {
 		templateUrl: 'assets/partials/users.new.html',
 		scope: {
 			newUser: '=',
-			addUser: '&'
+			addUser: '&',
+			uniqueEmail: '=',
+			checkUniqueEmail: '&'
 		}
 	};
 });

@@ -35,3 +35,15 @@
 	font-size: x-small;
 	color: black;
 }
+
+.modal-header-danger {
+	color: #a94442;
+  	border-color: #ebccd1;
+}
+
+.modal-danger {
+	color: #a94442;
+	background-color: #f2dede;
+  	border-color: #ebccd1;
+  	border-radius: 6px;
+}
