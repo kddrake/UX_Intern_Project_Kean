@@ -163,8 +163,9 @@
 							   class="form-control input-sm"
 							   name="email"
 							   id="email"
-							   ng-model="newUser.email" 
 							   placeholder="user@domain.com"
+							   ng-model="newUser.email"
+							   ng-change="checkEmail(newUser.email)"
 							   required
 							   ng-minlength=6>
 						<span class="input-group-addon input-addon">
@@ -172,8 +173,9 @@
 								  ng-show="newForm.email.$valid"></span>
 							<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
 								  ng-show="newForm.email.$invalid &&
-							  		       newForm.email.$dirty || 
-							  		       !uniqueEmail"></span>
+							  		       newForm.email.$dirty ||
+							  		       !uniqueEmail &&
+							  		       newForm.email.$dirty "></span>
 						</span>
 					</div>
 				</div>
@@ -186,6 +188,11 @@
 		<div class="col-md-7 col-md-offset-5">
 			<div class="panel panel-xs panel-danger">
 				<div class="panel-heading panel-danger"
+					 ng-show="!uniqueEmail">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<small>{{newUser.email}} is already in use, please choose another</small>
+				</div>
+				<div class="panel-heading panel-danger"
 					 ng-show="newForm.email.$error.required">
 					<span class="glyphicon glyphicon-exclamation-sign"></span>
 					<small>An email address is required.</small>
@@ -195,15 +202,11 @@
 					<span class="glyphicon glyphicon-exclamation-sign"></span> 
 					<small>An email address must include '@' and may include '.' after (e.g user-name@domain.com)</small>
 				</div>
-				<!--<div class="panel-heading panel-danger"
-					   ng-show="!uniqueEmail">
-					<small>{{newForm.email}} is already taken, please try another.</small>
-				</div>-->
 			</div>
 		</div>
 	</div>
 	<a ui-sref="users" 
 	   class="btn btn-success pull-right"
-	   ng-disabled="newForm.$invalid || newForm.$pristine"
+	   ng-disabled="newForm.$invalid || newForm.$pristine || !uniqueEmail"
 	   ng-click="addUser(newUser)">Add User</a>
 </form>

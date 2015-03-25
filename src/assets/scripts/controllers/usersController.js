@@ -5,6 +5,7 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 
 	$scope.orderRadio = 'firstName';
 	$scope.reverse = false;
+	$scope.uniqueEmail = true;
 	this.userInfo = {phone: false,
 					 email: false};
 
@@ -35,14 +36,13 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 		};
 	};
 
-	$scope.checkUniqueEmail = function(newEmail) {
+	$scope.checkEmail = function(newEmail) {
 		$scope.uniqueEmail = true;
 		angular.forEach($scope.users, function(usr){
 			if(usr.email == newEmail) {
 				$scope.uniqueEmail = false;
 			};
 		});
-		console.log("uniqueEmail= " + $scope.uniqueEmail);
 	};
 
 	$scope.openModal = function(size) {
