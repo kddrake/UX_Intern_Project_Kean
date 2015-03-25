@@ -7,11 +7,21 @@
 					<div class="btn-group pull-right" role="group">
 						<button type="button" 
 						 	     class="btn btn-info btn-xs"
-								 ng-click="filters = !filters">
+								 ng-click="filters = !filters"
+								 tooltip="Display Filters"
+								 tooltip-placement="bottom"
+								 tooltip-trigger="mouseenter"
+								 tooltip-popup-delay="1000"
+								 tooltip-append-to-body="true">
 							<span class="glyphicon glyphicon-search"></span>
 						</button>
 						<a ui-sref="users.new"
-					   	   class="btn btn-success btn-xs">
+					   	   class="btn btn-success btn-xs"
+					   	   tooltip="Add User"
+						   tooltip-placement="bottom"
+						   tooltip-trigger="mouseenter"
+						   tooltip-popup-delay="1000"
+						   tooltip-append-to-body="true">
 					   		<span class="glyphicon glyphicon-plus"></span>
 						</a>
 					</div>
@@ -30,14 +40,21 @@
 												   ng-model="userInfo.phone"
 												   ng-click="phone = !phone"
 												   tooltip="View Phone Number"
-												   tooltip-trigger="hover"
-												   tooltip-popup-delay='1000'
+												   tooltip-placement="top"
+												   tooltip-trigger="mouseenter"
+												   tooltip-popup-delay="1000"
+												   tooltip-append-to-body="true"
 												   btn-checkbox>
 												<span class="glyphicon glyphicon-phone"></span>
 											</label>
 											<label class="btn btn-info"
 												   ng-model="userInfo.email"
 												   ng-click="email = !email"
+												   tooltip="View Email Address"
+												   tooltip-placement="top"
+												   tooltip-trigger="mouseenter"
+												   tooltip-popup-delay="1000"
+												   tooltip-append-to-body="true"
 												   btn-checkbox>
 												<span class="glyphicon glyphicon-envelope"></span>
 											</label>
@@ -47,11 +64,21 @@
 										<div class="btn-group btn-group-sm btn-group-justified" role="group">
 											<a ui-sref="users.profile({id: user._id})" 
 											   ng-click="selectUser()"
+											   tooltip="View {{user.firstName}}'s Profile"
+											   tooltip-placement="top"
+											   tooltip-trigger="mouseenter"
+											   tooltip-popup-delay="1000"
+											   tooltip-append-to-body="true"
 											   class="btn btn-info btn-sm">
 												<span class="glyphicon glyphicon-eye-open"></span>
 											</a>
 											<a ui-sref="users.edit({id: user._id})" 
 											   ng-click="selectUser(); createEditUser()"
+											   tooltip="Edit {{user.firstName}}'s Profile"
+											   tooltip-placement="top"
+											   tooltip-trigger="mouseenter"
+											   tooltip-popup-delay="1000"
+											   tooltip-append-to-body="true"
 											   class="btn btn-warning">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</a>
