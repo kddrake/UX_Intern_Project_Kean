@@ -43,6 +43,7 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 				$scope.uniqueEmail = false;
 			};
 		});
+		console.log($scope.uniqueEmail);
 	};
 
 	$scope.openModal = function(size) {

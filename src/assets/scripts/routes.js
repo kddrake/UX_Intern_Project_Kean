@@ -8,7 +8,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			})
 			.state('users.new', {
 				url:"/new",
-				template:"<users-new new-user='newUser' add-user='addUser(newUser)' unique-email='uniqueEmail' check-email='checkEmail(newUser.email)'></users-new>",
+				template:"<users-new users='users' new-user='newUser' add-user='addUser(newUser)' unique-email={{uniqueEmail}} check-email='checkEmail(newUser.email)'></users-new>",
 				controller:"users.newController"
 			}) 
 			.state('users.profile', {

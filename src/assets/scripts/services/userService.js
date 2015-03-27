@@ -27,6 +27,8 @@ app.service('userService', function($rootScope, $stateParams, promiseFactory) {
 			.then(function() {
 				this.user = user;
 				populateUsersList();
+			}, function(error) {
+				console.log(user.email + " is already being used by another user.");
 			});
 	};
 

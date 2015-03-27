@@ -25,24 +25,19 @@
 							  		       newForm.first.$dirty"></span>
 						</span>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row"
-		 ng-show="newForm.first.$invalid &&
-		 	      newForm.first.$dirty">
-		<div class="col-md-7 col-md-offset-5">
-			<div class="panel panel-xs panel-danger">
-				<div class="panel-heading panel-danger"
-					 ng-show="newForm.first.$error.required">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A first name is required.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					   ng-show="newForm.first.$error.maxlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A first name cannot be longer than 32 characters.</small>
+					<div class="panel panel-xs panel-danger"
+						 ng-show="newForm.first.$dirty && newForm.first.$invalid">
+						<div ng-messages="newForm.first.$error">
+							<div ng-message="required">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A first name is required</small>
+							</div>
+							<div ng-message="maxlength">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A first name cannot be longer than 32 characters</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -73,24 +68,19 @@
 							  		       newForm.last.$dirty"></span>
 						</span>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row"
-		 ng-show="newForm.last.$invalid &&
-		 	      newForm.last.$dirty">
-		<div class="col-md-7 col-md-offset-5">
-			<div class="panel panel-xs panel-danger">
-				<div class="panel-heading panel-danger"
-					 ng-show="newForm.last.$error.required">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A last name is required.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					   ng-show="newForm.last.$error.maxlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A last name cannot be longer than 32 characters.</small>
+					<div class="panel panel-xs panel-danger"
+						 ng-show="newForm.last.$dirty && newForm.last.$invalid">
+						<div ng-messages="newForm.last.$error">
+							<div ng-message="required">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A last name is required</small>
+							</div>
+							<div ng-message="maxlength">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A last name cannot be longer than 32 characters</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -112,8 +102,7 @@
 							   ng-model="newUser.phone" 
 							   placeholder="xxx-xxx-xxxx"
 							   required
-							   ng-minlength=10
-							   ng-maxlength=15>
+							   ng-pattern="/^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/">
 						<span class="input-group-addon input-addon">
 							<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
 								  ng-show="newForm.phone.$valid"></span>
@@ -122,29 +111,19 @@
 							  		       newForm.phone.$dirty"></span>
 						</span>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row"
-		 ng-show="newForm.phone.$invalid &&
-		 	      newForm.phone.$dirty">
-		<div class="col-md-7 col-md-offset-5">
-			<div class="panel panel-xs panel-danger">
-				<div class="panel-heading panel-danger"
-					 ng-show="newForm.phone.$error.required">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A phone number is required.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					 ng-show="newForm.phone.$error.minlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A phone number cannot be less than 10 characters</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					 ng-show="newForm.phone.$error.maxlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A phone number cannot be longer than 15 characters.</small>
+					<div class="panel panel-xs panel-danger"
+						 ng-show="newForm.phone.$dirty && newForm.phone.$invalid">
+						<div ng-messages="newForm.phone.$error">
+							<div ng-message="required" class=>
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>An phone number is required.</small>
+							</div>
+							<div ng-message="pattern">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A phone number must match any combination the following patters: xxxxxxxxxx, xxx xxx xxxx, xxx-xxx-xxxx</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -152,9 +131,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group"
-				 ng-class="{'has-success': newForm.email.$valid,
-				 			'has-error': newForm.email.$invalid &&
-				 						 newForm.email.$dirty}">	
+				 ng-class="{'has-success': newForm.email.$valid && newForm.email.$dirty,
+				 			'has-error': newForm.email.$invalid && newForm.email.$dirty}">	
 				<label for="email"
 					   class="col-md-5 form-label">Email Address:</label>
 				<div class="col-md-7">
@@ -173,34 +151,26 @@
 								  ng-show="newForm.email.$valid"></span>
 							<span class="glyphicon glyphicon-ban-circle form-control-feedback input-glyphicon"
 								  ng-show="newForm.email.$invalid &&
-							  		       newForm.email.$dirty ||
-							  		       !uniqueEmail &&
-							  		       newForm.email.$dirty "></span>
+							  		       newForm.email.$dirty"></span>
 						</span>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row"
-		 ng-show="newForm.email.$invalid &&
-		 	      newForm.email.$dirty">
-		<div class="col-md-7 col-md-offset-5">
-			<div class="panel panel-xs panel-danger">
-				<div class="panel-heading panel-danger"
-					 ng-show="!uniqueEmail">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>{{newUser.email}} is already in use, please choose another</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					 ng-show="newForm.email.$error.required">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>An email address is required.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					 ng-show="newForm.email.$invalid">
-					<span class="glyphicon glyphicon-exclamation-sign"></span> 
-					<small>An email address must include '@' and may include '.' after (e.g user-name@domain.com)</small>
+					<div class="panel panel-xs panel-danger"
+						 ng-show="newForm.email.$dirty && newForm.email.$invalid">
+						<div ng-messages="newForm.email.$error">
+							<div ng-message="required">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>An email address is required</small>
+							</div>
+							<div ng-message="minlength">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>An email address must contain more 5 characters.</small>
+							</div>
+							<div ng-message="email">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>An email address must follow the pattern: user@domain</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
