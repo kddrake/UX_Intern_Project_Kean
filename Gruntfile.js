@@ -84,18 +84,28 @@ module.exports = function(grunt) {
 		connect : {
 			server: {
 				options: {
-					
+					port: 8080,
+					base: paths.public
 				}
 			}
+		},
+		watch: {
+			js: {
+				files: files.js,
+				tasks: ['concat']
+			},
+			others: {
+				files: files.css.concat(files.font).concat(files.img),
+				tasks: ['copy']
+			}
 		}
-
-
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', []);
+	grunt.registerTask('default', ['clean', 'concat', 'copy', 'connect', 'watch']);
 };
