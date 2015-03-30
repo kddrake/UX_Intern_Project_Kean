@@ -1,0 +1,18 @@
+<div class="modal-header modal-header-danger">
+	<div class="row">
+		<div class="col-md-12">
+			<h4 class="modal-title">
+				Delete User: {{user.firstName + " " + user.lastName}}?
+			</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-danger" 
+					ng-click="ok()">Delete</button>
+			<a ui-sref="users.profile({id: user._id})"
+		  	   class="btn btn-primary"
+		   	   ng-click="cancel()">Cancel</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,275 @@
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-primary fixed-panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Users
+					<div class="btn-group pull-right" role="group">
+						<button type="button" 
+						 	     class="btn btn-info btn-xs"
+								 ng-click="filters = !filters"
+								 tooltip="Display Filters"
+								 tooltip-placement="bottom"
+								 tooltip-trigger="mouseenter"
+								 tooltip-popup-delay="1000"
+								 tooltip-append-to-body="true">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+						<a ui-sref="users.new"
+					   	   class="btn btn-success btn-xs"
+					   	   tooltip="Add User"
+						   tooltip-placement="bottom"
+						   tooltip-trigger="mouseenter"
+						   tooltip-popup-delay="1000"
+						   tooltip-append-to-body="true">
+					   		<span class="glyphicon glyphicon-plus"></span>
+						</a>
+					</div>
+				</h3>
+			</div>
+			<div class="panel-body panel-info">
+				<div class="row">
+					<div class="col-md-12 fixed-panel-scroll">	
+						<accordion close-others="true">
+							<accordion-group heading="{{user.firstName + ' ' + user.lastName}}"
+											 ng-repeat="user in users | filter: search | orderBy: orderRadio: reverse">
+								<div class="row userButtonBar">
+									<div class="col-md-6">	
+										<div class="btn-group btn-group-sm btn-group-justified" role="group">
+											<label class="btn btn-info"
+												   ng-model="userInfo.phone"
+												   ng-click="phone = !phone"
+												   tooltip="View Phone Number"
+												   tooltip-placement="top"
+												   tooltip-trigger="mouseenter"
+												   tooltip-popup-delay="1000"
+												   tooltip-append-to-body="true"
+												   btn-checkbox>
+												<span class="glyphicon glyphicon-phone"></span>
+											</label>
+											<label class="btn btn-info"
+												   ng-model="userInfo.email"
+												   ng-click="email = !email"
+												   tooltip="View Email Address"
+												   tooltip-placement="top"
+												   tooltip-trigger="mouseenter"
+												   tooltip-popup-delay="1000"
+												   tooltip-append-to-body="true"
+												   btn-checkbox>
+												<span class="glyphicon glyphicon-envelope"></span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="btn-group btn-group-sm btn-group-justified" role="group">
+											<a ui-sref="users.profile({id: user._id})" 
+											   ng-click="selectUser()"
+											   tooltip="View {{user.firstName}}'s Profile"
+											   tooltip-placement="top"
+											   tooltip-trigger="mouseenter"
+											   tooltip-popup-delay="1000"
+											   tooltip-append-to-body="true"
+											   class="btn btn-info btn-sm">
+												<span class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											<a ui-sref="users.edit({id: user._id})" 
+											   ng-click="selectUser(); createEditUser()"
+											   tooltip="Edit {{user.firstName}}'s Profile"
+											   tooltip-placement="top"
+											   tooltip-trigger="mouseenter"
+											   tooltip-popup-delay="1000"
+											   tooltip-append-to-body="true"
+											   class="btn btn-warning">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">		
+										<div class="panel panel-info"
+											 ng-show="phone">
+											<div class="panel-heading user-panel-header">
+												<h5 class="panel-title">Phone</h5>
+											</div>
+											<div class="panel-body user-panel-body">
+												{{user.phone}}
+											</div>
+										</div>
+										<div class="panel panel-info"
+											 ng-show="email">
+											<div class="panel-heading user-panel-header">
+												<h5 class="panel-title">Email</h5>
+											</div>
+											<div class="panel-body user-panel-body">
+												{{user.email}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</accordion-group>
+						</accordion>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-8"
+				 ng-show="filters">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-info">
+							<div class="panel-body panel-filter">
+								<div class="row">	
+									<div class="col-md-12">
+										<div class="panel panel-info filter-panel">
+											<div class="panel-heading search-panel-heading">
+											Search By
+											<button type="button"
+												    class="btn close pull-right" 
+							   		   		   		ng-click="filters = !filters">
+							   		   			<span class="glyphicon glyphicon-remove"></span>
+							   				</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="btn-group btn-group-xs btn-group-justified" role="group">
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.firstName" 
+												   ng-click="filterFirst = !filterFirst;
+												   			 search.firstName = ''"
+												   btn-checkbox>
+												First
+											</label>
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.lastName" 
+												   ng-click="filterLast = !filterLast; 
+												   			 search.lastName = ''"
+												   btn-checkbox>
+												Last
+											</label>
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.phone" 
+												   ng-click="filterPhone = !filterPhone;; 
+												   			 search.phone = ''"
+												   btn-checkbox>
+												Phone
+											</label>
+											<label class="btn btn-primary" 
+												   ng-model="filterBy.email" 
+												   ng-click="filterEmail = !filterEmail;;
+												   			 search.email = ''"
+												   btn-checkbox>
+												Email
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">	
+									<div class="col-md-12">	
+										<div class="input-group search-bars"
+											 ng-show="filterFirst">
+											<span class="input-group-addon user-search-addon">
+												<b>F</b>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.firstName" 
+												   placeholder="Search by first name">
+										</div>
+										<div class="input-group search-bars"
+											 ng-show="filterLast">
+											<span class="input-group-addon user-search-addon">
+												<b>L</b>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.lastName" 
+												   placeholder="Search by last name">
+										</div>
+										<div class="input-group search-bars"
+											 ng-show="filterPhone">
+											<span class="input-group-addon user-search-addon">
+												<span class="glyphicon glyphicon-phone"></span>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.phone" 
+												   placeholder="Search by phone">
+										</div>
+										<div class="input-group search-bars"
+											 ng-show="filterEmail">
+											<span class="input-group-addon user-search-addon">
+												<span class="glyphicon glyphicon-envelope"></span>
+											</span>
+											<input type="text"
+												   class="form-control" 
+												   ng-model="search.email" 
+												   placeholder="Search by email">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8">
+										<div class="panel panel-info filter-panel">
+											<div class="panel-heading filter-panel-heading">
+											Order By
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="panel panel-info filter-panel">
+											<div class="panel-heading filter-panel-heading">
+											Sort By
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8">
+										<div class="btn-group btn-group-xs btn-group-justified" role="group">
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'firstName'">
+												First
+											</label>
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'lastName'">
+												Last
+											</label>
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'phone'">
+												Phone
+											</label>
+											<label class="btn btn-primary" ng-model="orderRadio" btn-radio="'email'">
+												Email
+											</label>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="btn-group btn-group-xs btn-group-justified" role="group">
+											<label class="btn btn-primary" ng-model="reverse" btn-radio="false">
+												In Order
+											</label>
+											<label class="btn btn-primary" ng-model="reverse" btn-radio="true">
+												Reverse
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<div ui-view></div>
+			</div>
+		</div>
+	</div>
+
+</div>
