@@ -411,7 +411,7 @@ app.directive('usersEdit', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'assets/partials/users.edit.html',
+		templateUrl: '../../temp/js/templates.js',
 		scope: {
 			modUser: '=',
 			userName: '@',
@@ -424,7 +424,7 @@ app.directive('usersNew', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'assets/partials/users.new.html',
+		templateUrl: '../../temp/js/templates.js',
 		scope: {
 			users: '=',
 			newUser: '=',
@@ -438,7 +438,7 @@ app.directive('usersProfile', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'assets/partials/users.profile.html',
+		templateUrl: '../../temp/js/templates.js',
 		scope: {
 			user: '=',
 			deleteUser: '&',
@@ -452,7 +452,7 @@ app.directive('users', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'assets/partials/users.html'
+		templateUrl: '../../temp/js/templates.js'
 	}
 })
 var app = angular.module('uxiApp', ['ngResource','ui.router', 'ui.bootstrap', 'ngMessages']);
