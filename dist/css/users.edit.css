@@ -1,0 +1,15 @@
+#doneButton {
+	display: inline;
+	position: relative;
+
+	float: right;
+
+	border: .0625em solid aliceblue;
+		border-radius: .5em;
+	padding: .25em .5em .125em .5em;
+
+	background: lightcoral;
+
+	font-weight: bold;
+	color: black;
+}

@@ -1,0 +1,39 @@
+html {
+	height: 100%;
+}
+body {
+	font-family: sans-serif;
+	background: lightgray;
+	height: 100%;
+	padding: 1em;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+hr {
+	margin: 0em .5em;
+}
+
+td {
+	padding: 0em .5em .5em .5em;
+	margin: 2em;
+}
+
+.input-addon {
+	min-width: 1.5em;
+}
+
+.input-glyphicon {
+	padding-left: .5em;
+}
+
+.error-message {
+	background: red;
+	border: 1px solid black;
+	padding: .125em .125em 0em .5em;
+	font-style: italic;
+}

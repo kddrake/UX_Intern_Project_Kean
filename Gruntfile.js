@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 	var files = {
 		js: [
 			'<%= paths.private %>scripts/**/*.js',
+			'<%= paths.temp %>js/templates.js'
 		],
 		css: [
 			'<%= paths.private %>css/**/*.css',
@@ -35,15 +36,26 @@ module.exports = function(grunt) {
 		paths: paths,
 		pkg: grunt.file.readJSON('package.json'),
 		clean: ['<%= paths.public %>', '<%= paths.temp %>'],
+		ngtemplates: {
+			main:{
+				options: {
+					bootstrap: function(module, script) {
+						return 'app.run([\'$templateCache\', function($templateCache) {\n' + script + '}]);\n';
+					}
+				},
+				files: [
+					{
+						cwd: '<%=paths.private %>',
+						src: 'partials/**/*.html',
+						dest:'<%= paths.temp %>js/templates.js'
+					}
+				]
+			}
+		},
 		copy: {
 			main: {
 				files: [
 					{
-						expand: true,
-						flatten: true,
-						src: files.js,
-						dest: '<%= paths.public %>js',
-					}, {
 						expand: true,
 						flatten: true,
 						src: files.css,
@@ -76,8 +88,10 @@ module.exports = function(grunt) {
 		concat: {
 			main: {
 				files: [
-					src: files.dependencies.js.concat(files.js),
-					dest: '<%= paths.public %>js/app.js'
+					{
+						src: files.dependencies.js.concat(files.js),
+						dest: '<%= paths.public %>js/app.js'
+					}
 				]
 			}
 		},
@@ -95,17 +109,18 @@ module.exports = function(grunt) {
 				tasks: ['concat']
 			},
 			others: {
-				files: files.css.concat(files.font).concat(files.img),
+				files: files.css,
 				tasks: ['copy']
 			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-angular-templates')
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['clean', 'concat', 'copy', 'connect', 'watch']);
+	grunt.registerTask('default', ['clean', 'ngtemplates', 'concat', 'copy', 'connect', 'watch']);
 };
