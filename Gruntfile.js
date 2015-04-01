@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 			'<%= paths.temp %>js/templates.js'
 		],
 		css: [
-			'<%= paths.private %>css/**/*.css',
+			'<%= paths.private %>css/*.css',
 		],
 		fonts: [
 			'<%= paths.private %>fonts/**/*'
@@ -23,13 +23,16 @@ module.exports = function(grunt) {
 		dependencies : {
 			js: [
 				'<%= paths.modules %>angular/angular.min.js',
-				'<%= paths.modules %>angular-bootstrap/dist/ui-bootstrap-tpls.min.js',
-				'<%= paths.modules %>angular-messages/angular-messages.min.js',
-				'<%= paths.modules %>angular-resource/angular-resource.min.js',
-				'<%= paths.modules %>angular-ui-router/release/angular-ui-router.min.js',
+				'<%= paths.modules %>angular-bootstrap/dist/ui-bootstrap-tpls.js',
+				'<%= paths.modules %>angular-messages/angular-messages.js',
+				'<%= paths.modules %>angular-resource/angular-resource.js',
+				'<%= paths.modules %>angular-ui-router/release/angular-ui-router.js',
 			],
 			css: [
-				'<%= paths.modules %>dist/css/bootstrap.min.css'
+				'<%= paths.modules %>bootstrap/dist/css/bootstrap.css'
+			],
+			glyphicons: [
+				'<%= paths.modules %>bootstrap/fonts'
 			]
 		}
 	};
@@ -59,17 +62,6 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						flatten: true,
-						src: files.css,
-						dest: '<%= paths.public %>css',
-					}, {
-						expand: true,
-						flatten: true,
-						src: files.dependencies.css,
-						dest: '<% paths.public %>css'
-
-					},{
-						expand: true,
-						flatten: true,
 						src: files.fonts,
 						dest: '<%= paths.public %>fonts',
 					}, {
@@ -92,6 +84,10 @@ module.exports = function(grunt) {
 					{
 						src: files.dependencies.js.concat(files.js),
 						dest: '<%= paths.public %>js/app.js'
+					},
+					{
+						src: files.dependencies.css.concat(files.css),
+						dest:'<%= paths.public %>css/style.css'
 					}
 				]
 			}
