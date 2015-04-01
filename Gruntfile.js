@@ -39,7 +39,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		paths: paths,
 		pkg: grunt.file.readJSON('package.json'),
-		clean: ['<%= paths.public %>', '<%= paths.temp %>'],
+		clean: {
+			start: ['<%= paths.public %>', '<%= paths.temp %>'],
+			end: ['<%= paths.temp %>']
+		},
 		ngtemplates: {
 			main:{
 				options: {
@@ -119,5 +122,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['clean', 'ngtemplates', 'concat', 'copy', 'connect', 'watch']);
+	grunt.registerTask('default', ['clean:start', 'ngtemplates', 'concat', 'clean:end', 'copy', 'connect', 'watch']);
 };

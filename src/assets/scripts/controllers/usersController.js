@@ -43,12 +43,11 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 				$scope.uniqueEmail = false;
 			};
 		});
-		console.log($scope.uniqueEmail);
 	};
 
 	$scope.openModal = function(size) {
 		var modalInstance = $modal.open({
-			templateUrl: 'assets/partials/deleteModal.html',
+			templateUrl: 'partials/modal/deleteModal.html',
 			controller: 'modalInstanceController',
 			size: size,
 			resolve: {
