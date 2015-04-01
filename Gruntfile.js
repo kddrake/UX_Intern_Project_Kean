@@ -7,7 +7,8 @@ module.exports = function(grunt) {
 	};
 	var files = {
 		js: [
-			'<%= paths.private %>scripts/**/*.js',
+			'<%= paths.private %>scripts/*.js',
+			'<%= paths.private %>scripts/*/*.js',
 			'<%= paths.temp %>js/templates.js'
 		],
 		css: [

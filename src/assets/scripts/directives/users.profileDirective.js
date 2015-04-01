@@ -2,7 +2,7 @@ app.directive('usersProfile', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: '../../temp/js/templates.js',
+		templateUrl: 'partials/views/users.profile.html',
 		scope: {
 			user: '=',
 			deleteUser: '&',
