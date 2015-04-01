@@ -8,4 +8,4 @@ app.controller('modalInstanceController', function($scope, $modalInstance, $stat
 	$scope.cancel = function() {
 		$modalInstance.dismiss('cancel');
 	}
-});
+})
