@@ -27,7 +27,8 @@
 					</div>
 					<div class="panel panel-xs panel-danger"
 						 ng-show="editForm.first.$dirty && editForm.first.$invalid">
-						<div ng-messages="editForm.first.$error">
+						<div ng-messages="editForm.first.$error"
+							 class="error-message">
 							<div ng-message="required">
 								<span class="glyphicon glyphicon-exclamation-sign"></span>
 								<small>A first name is required</small>
@@ -70,7 +71,8 @@
 					</div>
 					<div class="panel panel-xs panel-danger"
 						 ng-show="editForm.last.$dirty && editForm.last.$invalid">
-						<div ng-messages="editForm.last.$error">
+						<div ng-messages="editForm.last.$error"
+							 class="error-message">
 							<div ng-message="required">
 								<span class="glyphicon glyphicon-exclamation-sign"></span>
 								<small>A last name is required</small>
@@ -113,14 +115,15 @@
 					</div>
 					<div class="panel panel-xs panel-danger"
 						 ng-show="editForm.phone.$dirty && editForm.phone.$invalid">
-						<div ng-messages="editForm.phone.$error">
-							<div ng-message="required" class=>
+						<div ng-messages="editForm.phone.$error"
+							 class="error-message">
+							<div ng-message="required">
 								<span class="glyphicon glyphicon-exclamation-sign"></span>
 								<small>An phone number is required.</small>
 							</div>
 							<div ng-message="pattern">
 								<span class="glyphicon glyphicon-exclamation-sign"></span>
-								<small>A phone number must match any combination the following patters: xxxxxxxxxx, xxx xxx xxxx, xxx-xxx-xxxx</small>
+								<small>A phone number can only contain numbers with dashes or spaces separating each group of numbers. Parenthesis are allowed around the begining three numbers. Example: (555) 555-5555</small>
 							</div>
 						</div>
 					</div>
