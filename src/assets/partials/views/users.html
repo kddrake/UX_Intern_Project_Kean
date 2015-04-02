@@ -93,7 +93,7 @@
 												<h5 class="panel-title">Phone</h5>
 											</div>
 											<div class="panel-body user-panel-body">
-												{{user.phone}}
+												{{'('+ user.phone.slice(0,3) + ') ' + user.phone.slice(3,6) + '-' + user.phone.slice(6,10)}}
 											</div>
 										</div>
 										<div class="panel panel-info"

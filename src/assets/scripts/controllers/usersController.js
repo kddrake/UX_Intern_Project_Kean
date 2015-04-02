@@ -9,7 +9,12 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 	this.userInfo = {phone: false,
 					 email: false};
 
+	$scope.cleanPhoneNumber = function(phoneNum) {
+		return phoneNum.replace(/\D/g,'');
+	}
+
 	$scope.addUser = function(user) {
+		user.phone = $scope.cleanPhoneNumber(user.phone);
 		userService.addUser(user);
 	};
 
@@ -18,12 +23,15 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 	};
 
 	$scope.editUser = function(user) {
+		user.phone = $scope.cleanPhoneNumber(user.phone);
 		userService.editUser(user);
 		userService.getUsers();
 	};
 
 	$scope.createEditUser = function() {
 		$scope.modUser = angular.copy($scope.user);
+		$scope.modUser.phone = '(' + $scope.modUser.phone.slice(0,3) + ') ' +
+								$scope.modUser.phone.slice(3,6) + '-' + $scope.modUser.phone.slice(6,10);
 	}
 
 	$scope.deleteUser = function(user) {

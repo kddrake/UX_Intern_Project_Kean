@@ -102,7 +102,7 @@
 							   name="phone"
 							   id="phone"
 							   ng-model="modUser.phone"
-							   placeholder="{{user.phone}}" 
+							   placeholder="{{'('+ user.phone.slice(0,3) + ') ' + user.phone.slice(3,6) + '-' + user.phone.slice(6,10)}}" 
 							   required
 							   ng-pattern="/^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/">
 						<span class="input-group-addon input-addon">
