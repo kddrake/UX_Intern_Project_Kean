@@ -25,24 +25,20 @@
 							  		       editForm.first.$dirty"></span>
 						</span>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row"
-		 ng-show="editForm.first.$invalid &&
-		 	      editForm.first.$dirty">
-		<div class="col-md-7 col-md-offset-5">
-			<div class="panel panel-xs panel-danger">
-				<div class="panel-heading panel-danger"
-					 ng-show="editForm.first.$error.required">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A first name is required.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					   ng-show="editForm.first.$error.maxlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A first name cannot be longer than 32 characters.</small>
+					<div class="panel panel-xs panel-danger"
+						 ng-show="editForm.first.$dirty && editForm.first.$invalid">
+						<div ng-messages="editForm.first.$error"
+							 class="error-message">
+							<div ng-message="required">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A first name is required</small>
+							</div>
+							<div ng-message="maxlength">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A first name cannot be longer than 32 charaters</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -73,24 +69,20 @@
 							  		       editForm.last.$dirty"></span>
 						</span>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row"
-		 ng-show="editForm.last.$invalid &&
-		 	      editForm.last.$dirty">
-		<div class="col-md-7 col-md-offset-5">
-			<div class="panel panel-xs panel-danger">
-				<div class="panel-heading panel-danger"
-					 ng-show="editForm.last.$error.required">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A last name is required.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					   ng-show="editForm.last.$error.maxlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A last name cannot be longer than 32 characters.</small>
+					<div class="panel panel-xs panel-danger"
+						 ng-show="editForm.last.$dirty && editForm.last.$invalid">
+						<div ng-messages="editForm.last.$error"
+							 class="error-message">
+							<div ng-message="required">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A last name is required</small>
+							</div>
+							<div ng-message="maxlength">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A last name cannot be longer than 32 characters</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -110,10 +102,9 @@
 							   name="phone"
 							   id="phone"
 							   ng-model="modUser.phone"
-							   placeholder="{{user.phone}}" 
+							   placeholder="{{'('+ user.phone.slice(0,3) + ') ' + user.phone.slice(3,6) + '-' + user.phone.slice(6,10)}}" 
 							   required
-							   ng-minlength=10
-							   ng-maxlength=15>
+							   ng-pattern="/^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/">
 						<span class="input-group-addon input-addon">
 							<span class="glyphicon glyphicon-ok form-control-feedback input-glyphicon"
 								  ng-show="editForm.phone.$valid"></span>
@@ -122,39 +113,27 @@
 							  		       editForm.phone.$dirty"></span>
 						</span>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row"
-		 ng-show="editForm.phone.$invalid &&
-		 	      editForm.phone.$dirty">
-		<div class="col-md-7 col-md-offset-5">
-			<div class="panel panel-xs panel-danger">
-				<div class="panel-heading panel-danger"
-					 ng-show="editForm.phone.$error.required">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A phone number is required.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					   ng-show="editForm.phone.$error.minlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A phone number cannot be less than 10 characters.</small>
-				</div>
-				<div class="panel-heading panel-danger"
-					   ng-show="editForm.phone.$error.maxlength">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<small>A phone number cannot be longer than 15 characters.</small>
+					<div class="panel panel-xs panel-danger"
+						 ng-show="editForm.phone.$dirty && editForm.phone.$invalid">
+						<div ng-messages="editForm.phone.$error"
+							 class="error-message">
+							<div ng-message="required">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>An phone number is required.</small>
+							</div>
+							<div ng-message="pattern">
+								<span class="glyphicon glyphicon-exclamation-sign"></span>
+								<small>A phone number can only contain numbers with dashes or spaces separating each group of numbers. Parenthesis are allowed around the begining three numbers. Example: (555) 555-5555</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="row">	
 		<div class="col-md-12">	
-			<div class="form-group"
-				 ng-class="{'has-success': editForm.email.$valid,
-				 			'has-error': editForm.email.$invalid &&
-				 						 editForm.email.$dirty}">	
+			<div class="form-group">	
 				<label for="email"
 					   class="col-md-5 form-label">Email Address:</label>
 				<div class="col-md-7">
