@@ -9,6 +9,7 @@ app.service('userService', function($rootScope, $stateParams, promiseFactory) {
 				currentUser = usr;
 			}
 		})
+		console.log(currentUser);
 		return currentUser;
 	}
 
