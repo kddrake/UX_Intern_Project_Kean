@@ -3,8 +3,7 @@
 
 module.exports = function(config) {
   config.set({
-    // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../..',
+    plugins: ['karma-jasmine', 'karma-phantomjs-launcher'],
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -12,14 +11,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/angular/angular.min.js',
-      'node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js',
-      'node_modules/angular-messages/angular-messages.js',
-      'node_modules/angular-resource/angular-resource.js',
-      'node_modules/angular-ui-router/release/angular-ui-router.js',
-      'src/assets/scripts/**/*.js',
-      'src/test/unit/*.js',
-      'src/test/unit/**/*.js',
+      'dist/js/app.js',
+      'src/test/unit/**/*.js'
     ],
 
     // list of files to exclude
@@ -47,14 +40,14 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };
