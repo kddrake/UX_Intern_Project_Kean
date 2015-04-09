@@ -30,7 +30,7 @@ describe('Controller Tests: ', function() {
 	describe('usersController ', function() {
 		
 		var usersController, scope;
-		beforeEach(inject(function($controller, $rootScope, _userService_) {
+		beforeEach(inject(function ($controller, $rootScope, _userService_) {
 			scope = $rootScope.$new();
 			usersController = $controller('usersController', {$scope: scope});
 			userService = _userService_;
@@ -40,15 +40,14 @@ describe('Controller Tests: ', function() {
 			expect(scope.cleanPhoneNumber('(555) 555-5555')).toBe('5555555555');
 		});
 
-		it('should add user', function() {
+		it('should add user (calling userService\'s addUser)', function() {
 			spyOn(userService, 'addUser');
 			
 			scope.addUser(user);
 			expect(userService.addUser).toHaveBeenCalled();
 		});
 
-		it('should select a current user', function() {
-			//scope.user continues to be undefined	
+		it('should select a current user', function() {	
 			scope.user = {};
 			this.user = user;
 
@@ -56,14 +55,14 @@ describe('Controller Tests: ', function() {
 			expect(scope.user).toBeDefined();
 		});
 
-		it('should edit a user', function() {
+		it('should edit a user (calling userService\'s editUser)', function() {
 			spyOn(userService, 'editUser');
 
 			scope.editUser(user)
 			expect(userService.editUser).toHaveBeenCalled();
 		});
 
-		it('should delete a user', function() {
+		it('should delete a user (calling userService\'s deleteUser)', function() {
 			spyOn(userService, 'deleteUser');
 
 			scope.deleteUser(user);
