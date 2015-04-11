@@ -1,6 +1,9 @@
 describe('Controller Tests: ', function() {
-	var user = {firstName: 'A.', lastName: 'User', phone: '(555) 555-5555', email: 'a.user@gmail.com'};
+	var dummy = {firstName: 'A.', lastName: 'User', phone: '5555555555', email: 'a.user@gmail.com'};
 	beforeEach(module('uxiApp'));
+	beforeEach(inject(function (_userService_) {
+
+	}));
 
 	//TODO:- test 'redirect' as defined in child view controllers
 	//	   as it is not used by this controller  
@@ -43,44 +46,50 @@ describe('Controller Tests: ', function() {
 		it('should add user (calling userService\'s addUser)', function() {
 			spyOn(userService, 'addUser');
 			
-			scope.addUser(user);
+			scope.addUser(dummy);
 			expect(userService.addUser).toHaveBeenCalled();
 		});
 
 		it('should select a current user', function() {	
 			scope.user = {};
-			this.user = user;
-
+			this.user = dummy;
+			usersController.user = dummy;
+			//Expected Object({ }) to be Object({... dummy ...})
 			scope.selectUser();
-			expect(scope.user).toBeDefined();
+			expect(scope.user).toBe(dummy);
 		});
 
 		it('should edit a user (calling userService\'s editUser)', function() {
 			spyOn(userService, 'editUser');
 
-			scope.editUser(user)
+			scope.editUser(dummy)
 			expect(userService.editUser).toHaveBeenCalled();
 		});
+
+		it('should create a copy of the current user to be edited', function() {
+			scope.user = dummy;
+			scope.modUser = {};
+
+			scope.createEditUser();
+			scope.modUser.phone = scope.cleanPhoneNumber(scope.modUser.phone);
+			expect(scope.modUser).toEqual(dummy);
+		})
 
 		it('should delete a user (calling userService\'s deleteUser)', function() {
 			spyOn(userService, 'deleteUser');
 
-			scope.deleteUser(user);
+			scope.deleteUser(dummy);
 			expect(userService.deleteUser).toHaveBeenCalled();
 		});
-	});
-	
-		describe('users.profileController ', function() {
-			
-			var profileController, scope;
-			beforeEach(inject(function($controller, $rootScope) {
-				scope = $rootScope.$new();
-				profileController = $controller('users.profileController', {$scope: scope});
-			}));
 
-			it('should be truthy', function() {
-			//TypeError: undefined is not a function (evaluating '$scope.redirect()')
-				expect(true).toBeTruthy();
-			})
-		})
+		it('should redirect page when user is null', inject(function($state) {
+			state = $state;
+			spyOn(state, 'go');
+			scope.user = null;
+
+			scope.redirect();
+			expect(state.go).toHaveBeenCalled();
+		}));
+	});
+
 });
