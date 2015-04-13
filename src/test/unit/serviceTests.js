@@ -1,51 +1,54 @@
-describe('Service Tests: ', function() {
+describe('Service Tests:', function() {
 	
 	var user = {_id: 0001, firstName: 'A.', lastName: 'User', phone: '(555) 555-5555', email: 'a.user@gmail.com'};
+	var users = [user, {_id: 0002, firstName: 'B.', lastName: 'User', phone:'5555555555', email:'b.user@gmail.com'}];
 	var $q, $rootScope;
 	beforeEach(module('uxiApp'));
-	beforeEach(inject(function(_$q_, _$rootScope_) {
-		$q = _$q_;
-		$rootScope = _$rootScope_;
+	beforeEach(inject(function(_$httpBackend_) {
+		$httpBackend = _$httpBackend_;
+		
+		getHandler = $httpBackend.whenGET('http://localhost:24149/users').respond(users);
+		postHandler = $httpBackend.whenPOST('http://localhost:24149/users').respond(user);
+		putHandler = $httpBackend.whenPUT('http://localhost:24149/users/1').respond(user);
+		deleteHandler = $httpBackend.whenDELETE('http://localhost:24149/users/1').respond(users[1]);
 	}));
 
-	describe('userService ', function() {
-		
-		var userService, promiseFactory;
-		beforeEach(inject(function (_userService_, _promiseFactory_){ 
+	afterEach(function() {
+		$httpBackend.verifyNoOutstandingExpectation();
+		$httpBackend.verifyNoOutstandingRequest();
+	});
+
+	describe('userService', function() {
+		//setUser() untested
+
+		beforeEach(inject(function (_userService_) {
 			userService = _userService_;
-			promiseFactory = _promiseFactory_;
 		}));
 
-		it('should add a user', function() {
-	
+		it('should get users list from database via GET/QUERY request', function() {
+			$httpBackend.expect('GET', 'http://localhost:24149/users');
+			userService.getUsers();
+			$httpBackend.flush();
 		});
 
-		it('should edit a user', function() {
-
+		it('should add a user to database via POST request', function() {
+			$httpBackend.expect('POST', 'http://localhost:24149/users');
+			userService.addUser();
+			$httpBackend.flush();
 		});
 
-		it('should set current user', function() {
-
+		it('should edit a user and save to database via PUT request', function() {
+			$httpBackend.expect('PUT', 'http://localhost:24149/users/1');
+			userService.editUser(user);
+			$httpBackend.flush();
 		});
 
-		it('should delete a user', function() {
-
-		});
-
-		it('should get users', function() {
-			
+		it('should delete a user from database via DELETE', function() {
+			$httpBackend.expect('DELETE', 'http://localhost:24149/users/1');
+			userService.deleteUser(user);
+			$httpBackend.flush();
 		});
 
 	});
 
-	describe('promiseFactory', function() {
-		var resource;
-		beforeEach(inject(function(_promiseFactory_) {
-			promiseFactory = _promiseFactory_;
-		}))
-
-		it('should return a create promise', function() {
-
-		});
-	})
 });
