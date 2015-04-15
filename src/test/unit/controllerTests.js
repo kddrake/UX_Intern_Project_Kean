@@ -48,9 +48,7 @@ describe('Controller Tests: ', function() {
 		});
 
 		it('should select a current user', function() {	
-			$scope.user = {};
-			userService.user = dummy;
-			$scope.selectUser();
+			$scope.selectUser(dummy);
 			//Expected Object({ }) to be Object({... dummy ...})
 			expect($scope.user).toBe(dummy);
 		});
