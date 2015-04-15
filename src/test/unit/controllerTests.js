@@ -5,9 +5,6 @@ describe('Controller Tests: ', function() {
 
 	}));
 
-	//TODO:- test 'redirect' as defined in child view controllers
-	//	   as it is not used by this controller  
-
 	describe('Module ', function() {
 		it('should have usersController', function() {
 			expect('uxiApp.usersController').not.toBe(null);
@@ -52,12 +49,10 @@ describe('Controller Tests: ', function() {
 
 		it('should select a current user', function() {	
 			$scope.user = {};
-			//Initializing either user doesn't matter, scope.user still not being set
-			this.user = dummy;
-			usersController.user = dummy;
-			$scope.selectUser;
+			userService.user = dummy;
+			$scope.selectUser();
 			//Expected Object({ }) to be Object({... dummy ...})
-			expect($scope.user).toBe(this.user);
+			expect($scope.user).toBe(dummy);
 		});
 
 		it('should edit a user (calling userService\'s editUser)', function() {
@@ -92,5 +87,4 @@ describe('Controller Tests: ', function() {
 			expect(state.go).toHaveBeenCalled();
 		}));
 	});
-
 });

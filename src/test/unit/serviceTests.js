@@ -19,7 +19,6 @@ describe('Service Tests:', function() {
 	});
 
 	describe('userService', function() {
-		//setUser() untested
 
 		beforeEach(inject(function (_userService_) {
 			userService = _userService_;
@@ -43,7 +42,7 @@ describe('Service Tests:', function() {
 			$httpBackend.flush();
 		});
 
-		it('should delete a user from database via DELETE', function() {
+		it('should delete a user from database via DELETE request', function() {
 			$httpBackend.expect('DELETE', 'http://localhost:24149/users/1');
 			userService.deleteUser(user);
 			$httpBackend.flush();
