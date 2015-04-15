@@ -18,8 +18,8 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 		userService.addUser(user);
 	};
 
-	$scope.selectUser = function() {
-		$scope.user = this.user
+	$scope.selectUser = function(user) {
+		$scope.user = user
 	};
 
 	$scope.editUser = function(user) {

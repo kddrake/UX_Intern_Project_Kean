@@ -27,6 +27,7 @@ module.exports = function(grunt) {
 				'<%= paths.modules %>angular-messages/angular-messages.js',
 				'<%= paths.modules %>angular-resource/angular-resource.js',
 				'<%= paths.modules %>angular-ui-router/release/angular-ui-router.js',
+				'<%= paths.modules %>angular-mocks/angular-mocks.js'
 			],
 			css: [
 				'<%= paths.modules %>bootstrap/dist/css/bootstrap.css'

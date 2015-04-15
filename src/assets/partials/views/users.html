@@ -63,7 +63,7 @@
 									<div class="col-md-6">
 										<div class="btn-group btn-group-sm btn-group-justified" role="group">
 											<a ui-sref="users.profile({id: user._id})" 
-											   ng-click="selectUser()"
+											   ng-click="selectUser(user)"
 											   tooltip="View {{user.firstName}}'s Profile"
 											   tooltip-placement="top"
 											   tooltip-trigger="mouseenter"
@@ -73,7 +73,7 @@
 												<span class="glyphicon glyphicon-eye-open"></span>
 											</a>
 											<a ui-sref="users.edit({id: user._id})" 
-											   ng-click="selectUser(); createEditUser()"
+											   ng-click="selectUser(user); createEditUser()"
 											   tooltip="Edit {{user.firstName}}'s Profile"
 											   tooltip-placement="top"
 											   tooltip-trigger="mouseenter"
